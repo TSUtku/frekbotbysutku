@@ -1,11 +1,11 @@
 const config = {
-  "token": "",
+  "token": "NjQzMTI3MTg2MjMyMTgwNzU3.XiRb8g.xgl8CtjFYHhZiKw0oMBO5BeGntM",
 
   "dashboard" : {
-    "oauthSecret": "", // botunuzun client secret tini buraya yazin
-    "callbackURL": "https://kc-at-panel.glitch.me/callback",// burda login yapmak icin botunuzun Outh2 yazan yere gelip orda daki kizma yapistirip kaydedin
-    "sessionSecret": "",
-    "domain": "https://kc-at-panel.glitch.me",// buraya kc at alt yapi yerine yazdiysaniz kc-at-panel isimi ile degistirin
+    "oauthSecret": "643127186232180757", 
+    "callbackURL": "https://pie-fuchsia.glitch.me/callback",
+    "sessionSecret": "_78-HSf2ZFJ_00un4Tl62bvcUymZAlKK",
+    "domain": "https://pie-fuchsia.glitch.me/",
     "port": 8000
   },
 };
