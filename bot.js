@@ -41,7 +41,9 @@ fs.readdir('./komutlar/', (err, files) => {
         });
     });
 });
+//////////////
 
+/////////////////////
 
 
 
@@ -794,3 +796,6 @@ process.on("unhandledRejection", err => {
 });
 
 client.login(ayarlar.token);
+/////////////////
+
+//////////////
