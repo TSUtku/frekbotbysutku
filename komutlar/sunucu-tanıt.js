@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
   {
         const embed = new Discord.RichEmbed()
   .setTitle('BAŞARILI')
-  .setDescription('Sunucu [Burada](Discord Sunucu Linkiniz) Tanıtıldı! \n\n 12 Saat Sonra Sunucunuzu Tekrardan Tanıtabilirsiniz. \n\n Sunucunu Tanıtabilmek İçin Beni [Ekle!](BOT DAVET LİNKİ)')
+  .setDescription('Sunucu [Burada](Discord Sunucu Linkiniz) Tanıtıldı! \n\n 12 Saat Sonra Sunucunuzu Tekrardan Tanıtabilirsiniz. \n\n Sunucunu Tanıtabilmek İçin Beni [Ekle!](https://discordapp.com/oauth2/authorize?client_id=678276271515369472&scope=bot&permissions=2146958847)')
   .setColor('GREEN')
  message.channel.sendEmbed(embed);
     message.channel.createInvite({maxAge: 0}).then((invite) => {
@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
       .addField(` Sunucu Davet Linki`, invite.url, true)
             .setColor('RANDOM')
       .setThumbnail(message.guild.iconURL)
-       client.channels.get('KANAL ID').send(embed)
+       client.channels.get('678298107783675907').send(embed)
             });
   kullanildii[message.guild.id].gunlukkullanim = 1
     
