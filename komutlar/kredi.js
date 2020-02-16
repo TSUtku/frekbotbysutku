@@ -13,7 +13,7 @@ let sure = await db.fetch(`Hopps_${message.guild.id}`)
       message.channel.send(`Günlük! Kredini Zaten Aldın **${timeObj.hours} saat ${timeObj.minutes} dakika** beklemelisin!`)
       } else {
    let m = message
- let verildi = "'a 500 TL Kredi Verildi!"
+ let verildi = "'a 1 İNVİTE  Kredi Verildi kurucu DM AT!"
   const al = new Discord.RichEmbed()
   .setColor("RANDOM")
  .setDescription(`${message.author.tag}${verildi}`)
