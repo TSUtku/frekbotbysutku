@@ -57,7 +57,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['sunucutanıt'],
-    permLevel: 2,
+    permLevel: 0,
 }
 exports.help = {
     name: 'sunucunutanıt',

@@ -28,7 +28,7 @@ exports.conf = {
     enabled: true,
     guildOnly: true,
     aliases: ['prefix-ayarla'],
-    permLevel: 0
+    permLevel: 4
 };
   
   exports.help = {

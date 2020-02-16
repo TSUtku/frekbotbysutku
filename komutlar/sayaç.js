@@ -36,7 +36,7 @@ exports.conf = {
     enabled: true,
     guildOnly: true,
     aliases: [],
-    permLevel: 0
+    permLevel: 4
 };
 exports.help = {
     name: 'sayaç-ayarla',

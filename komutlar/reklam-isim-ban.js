@@ -24,7 +24,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['reklam-isim-ban'],
-    permLevel: 0
+    permLevel: 3
 };
 
 exports.help = {

@@ -21,7 +21,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["reklam"],
-  permLevel: 0
+  permLevel: 2
 }
 exports.help = {
   name: "reklam-engel",

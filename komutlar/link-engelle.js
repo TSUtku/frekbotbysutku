@@ -32,7 +32,7 @@ exports.conf = {
  enabled: true,
  guildOnly: false,
   aliases: ['link', 'reklamfiltresi', 'reklam-filtre', 'reklamfiltre'],
- permLevel: 0
+ permLevel: 2
 };
 
 exports.help = {
