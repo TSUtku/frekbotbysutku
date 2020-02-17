@@ -104,6 +104,65 @@ client.unload = command => {
 
 
 /////////////////////////////////////////////////////
+client.on("message", message => {
+
+//var i = db.fetch(`prefix_${message.guild.id}`)
+
+  
+    let afk_kullanici = message.mentions.users.first() || message.author;
+    if(message.content.startsWith(ayarlar.prefix+"afk")) return; 
+ if (message.author.bot === true) return;
+   
+
+     if(message.content.includes(`<@${afk_kullanici.id}>`))
+         if(db.has(`afks_${afk_kullanici.id}`)) {
+             const afksuan = new Discord.RichEmbed()
+                     .setColor("RANDOM")
+                     .setDescription(`**${client.users.get(afk_kullanici.id).tag}** adlı kullanıcı şuanda AFK! \n**Sebep:** \n${db.fetch(`afks_${afk_kullanici.id}`)}`)
+                     message.channel.send(afksuan)
+         }
+   
+         if(db.has(`afks_${message.author.id}`)) {
+                        let user = message.member
+
+             const basarili = new Discord.RichEmbed()
+
+                 .setColor("GREEN")
+                 .setDescription("<@"+`${message.author.id}`+">"+"**Başarıyla AFK modundan çıktın <:tik:561940914247827470>**")
+                              user.setNickname(message.author.username)
+
+                message.channel.send(basarili)
+             db.delete(`afks_${message.author.id}`)
+         } 
+
+       });
+   
+///////////////
+client.on("message", async msg => {
+const request = require('node-superfetch');
+const db = require('quick.db');
+const ms = require('parse-ms')
+let timeout = 600000
+let dakdest = await db.fetch(`goldzzz_${msg.author.id}`);
+let i = db.fetch(`gold_${msg.author.id}`)
+          if (i == 'gold') {
+    if (dakdest !== null && timeout - (Date.now() - dakdest) > 0) {
+        let time = ms(timeout - (Date.now() - dakdest));
+    } else {
+  if(msg.author.bot) return;   
+  if (msg.content.length > 1) {
+db.set(`goldzzz_${msg.author.id}`, Date.now());
+   msg.channel.send('**Bir Gold Üye Belirdi!!**')
+  }
+};
+          }
+   else if (i == undefined) {           
+          }
+          if (!i) return;
+        
+});
+   
+/////////////////////
 
 client.on("message", async message => {
     let sayac = db.fetch(`sayac_${message.guild.id}`)
