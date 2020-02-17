@@ -4,7 +4,7 @@ const client = new Discord.Client();
 exports.run = async (bot, message, args) => {
  //
 
-  if (message.author.id !== '612333524015644692') return;
+  if (message.author.id !== '543796966602309653') return;
   let nesne = args[0]
   if (!nesne) return message.channel.send('Bir kullanıcının IDsini girmelisin?')
   
