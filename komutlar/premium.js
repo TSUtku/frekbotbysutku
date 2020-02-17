@@ -7,7 +7,8 @@ exports.run = (client, message, args) => {
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setAuthor(`${client.user.username} Premium Komutları`)
-    .addField('a!piyango'£, '')//ne kadar premium komutunuz varsa o kadar .addField('prefix+komut', 'açıklama/kullanım amacı') koyun
+    .addField('a!piyango', 'piyango oynarsın')
+    .addField('a!afk', 'afk olursun')
     .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=678276271515369472&scope=bot&permissions=2146958847) **|** [Destek Sunucusu](https://discord.gg/BAĞLANTI) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
