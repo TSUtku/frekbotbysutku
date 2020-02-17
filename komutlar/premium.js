@@ -9,6 +9,7 @@ exports.run = (client, message, args) => {
     .setAuthor(`${client.user.username} Premium Komutları`)
     .addField('a!piyango', 'piyango oynarsın')
     .addField('a!afk', 'afk olursun')
+     .addField('a!panelkur', 'otopanel kurur')
     .addField(`» Linkler`, `[Bot Davet Linki](https://discordapp.com/oauth2/authorize?client_id=678276271515369472&scope=bot&permissions=2146958847) **|** [Destek Sunucusu](https://discord.gg/BAĞLANTI) **|** [Bota Oy Ver (Vote)](https://discordbots.org/bot/${botid}/vote) **|** [Web Sitesi]()`)//websiteniz yoksa  **|** [Web Sitesi]() yeri silebilirsiniz
     message.channel.sendEmbed(embed);
 
