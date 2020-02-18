@@ -171,7 +171,6 @@ let i = db.fetch(`gold_${msg.author.id}`)
   if(msg.author.bot) return;   
   if (msg.content.length > 1) {
 db.set(`goldzzz_${msg.author.id}`, Date.now());
-   msg.channel.send('**Bir Gold Üye Belirdi!!**')
   }
 };
           }
