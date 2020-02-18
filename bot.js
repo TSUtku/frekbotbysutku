@@ -43,8 +43,27 @@ fs.readdir('./komutlar/', (err, files) => {
 });
 //////////////
 
+const app = express();
+    app.get("/", (request, response) => {
+    console.log(` az önce pinglenmedi. Sonra ponglanmadı... ya da başka bir şeyler olmadı.`);
+    response.sendStatus(200);
+    });
+    app.listen(process.env.PORT);
+    setInterval(() => {
+    http.get(`http://mcsda.glitch.me/`);
+    }, 280000);
 /////////////////////
-
+client.on('message', async msg => {
+    if (msg.content.toLowerCase() === prefix + "disko") {
+msg.channel.send('**Eğer *__disko__* Adlı Bir Rol Oluşturduysanız Şu Andan İtibaren O Rolün Rengi Sürekli Değişecektir! Eğer *__disko__* Rolü Oluşturulmadıysa Hiçbir Rolün Rengi Değişmeyecektir.**');
+   if (msg.channel.type === "dm") return;
+  const rol = 'disko' // Rol ismi buraya yazılacak. Örnek Olarak Buraya Kurucu Yazarsak Kurucu Rolünün Rengi Sürekli Değişir //
+  setInterval(() => {
+      msg.guild.roles.find(s => s.name === rol).setColor("RANDOM")
+      }, 1000);
+  } 
+});//discord api ihlali olabilir
+   /////////////////////////////
 
 
 client.reload = command => {
