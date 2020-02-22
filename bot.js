@@ -63,7 +63,11 @@ msg.channel.send('**Eğer *__disko__* Adlı Bir Rol Oluşturduysanız Şu Andan 
       }, 1000);
   } 
 });//discord api ihlali olabilir
-   
+   /////////////
+
+
+
+////////////
 
 
 client.reload = command => {

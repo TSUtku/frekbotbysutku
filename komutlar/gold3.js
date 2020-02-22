@@ -12,7 +12,7 @@ message.reply("**Maalesef bu komutu kullanamazsın gold üye değilsin :(**")
 
 const Discord = require('discord.js');
 
-exports.run = function (client, message, args) {
+exports.run = function (client, message, args) {a
     let kişi = message.mentions.users.first();
     if (message.mentions.users.size < 1) return message.reply('Lütfen birisini etiketlermisin...')
     let yazi = args[1]
