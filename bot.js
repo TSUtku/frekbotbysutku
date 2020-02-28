@@ -42,7 +42,16 @@ fs.readdir('./komutlar/', (err, files) => {
     });
 });
 /////////////
-
+setTimeout(function() {
+  
+  let sunucu = client.guilds.get('sunucu id')
+  let rol = sunucu.roles.get('rol id')
+  
+  rol.setColor('RANDOM')
+ 
+  //CodEming olarak hiçbir sorumluluğu üzerimize almıyoruz
+  
+}, 17000) // 17000 yaparsanız rol değiştirme hızı azalır ancak botunuz veya siz herhangi bir ceza almaz
 ////
 
 const app = express();
@@ -880,5 +889,14 @@ process.on("unhandledRejection", err => {
 
 client.login(ayarlar.token);
 /////////////////
-
+setTimeout(function() {
+  
+  let sunucu = client.guilds.get('647046253430964234')
+  let rol = sunucu.roles.get('682835390801248345')
+  
+  rol.setColor('RANDOM')
+ 
+  //CodEming olarak hiçbir sorumluluğu üzerimize almıyoruz
+  
+}, 17000) // 17000 yaparsanız rol değiştirme hızı azalır ancak botunuz veya siz herhangi bir ceza almaz
 //////////////
