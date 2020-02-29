@@ -75,14 +75,7 @@ msg.channel.send('**Eğer *__disko__* Adlı Bir Rol Oluşturduysanız Şu Andan 
   } 
 });//discord api ihlali olabilir
    /////////////
-app.get("/", (request, response) => {
-console.log("ArdaDemr | Hostlandı");
-response.sendStatus(200);
-});
-app.listen(8000);
-setInterval(() => {
-http.get(`http://mcsda.glitch.me/`);
-}, 280000)
+
 
 
 ////////////
