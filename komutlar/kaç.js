@@ -5,7 +5,7 @@ exports.run = async (client, message, args, level) => {
   try {
     
     const embed = new Discord.RichEmbed()
-    .setTitle(`SalihGaming- Komut Sayısı`)
+    .setTitle(`MR|AKALS- Komut Sayısı`)
     .setDescription('**\nToplam**  **' + client.commands.size + '** **Komut Vardır!** ')
     .setColor("AEDD13")
     .setThumbnail("https://cdn.discordapp.com/attachments/670924272683974657/671276907370774548/giphy_13.gif")
