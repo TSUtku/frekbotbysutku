@@ -75,6 +75,24 @@ msg.channel.send('**Eğer *__disko__* Adlı Bir Rol Oluşturduysanız Şu Andan 
   } 
 });//discord api ihlali olabilir
    /////////////
+/// Anti Ddos
+ client.on('message', msg => {
+
+if(client.ping > 2500) {
+
+            let bölgeler = ['singapore', 'eu-central', 'india', 'us-central', 'london',
+            'eu-west', 'amsterdam', 'brazil', 'us-west', 'hongkong', 
+            'us-south', 'southafrica', 'us-east', 'sydney', 'frankfurt',
+            'russia']
+           let yenibölge = bölgeler[Math.floor(Math.random() * bölgeler.length)]
+           let sChannel = msg.guild.channels.find(c => c.name === "ddos-system")
+
+           sChannel.send(`Sunucu'ya Vuruyorlar \nSunucu Bölgesini Değiştirdim \n __**${yenibölge}**__ :tik: __**Sunucu Pingimiz**__ :`+ client.ping)
+           msg.guild.setRegion(yenibölge)
+           .then(g => console.log(" bölge:" + g.region))
+           .then(g => msg.channel.send("bölge **"+ g.region  + " olarak değişti")) 
+           .catch(console.error);
+}});
 
 
 
