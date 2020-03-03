@@ -42,6 +42,20 @@ fs.readdir('./komutlar/', (err, files) => {
     });
 });
 /////////////
+client.on('guildCreate', async guild => {
+  const girismesaj = [
+    'Bot Sunucunuza başarılı şekilde eklendi bizi seçtiğiniz için çok teşekür ederiz :)'
+  ]
+  guild.owner.send(girismesaj)
+  console.log(`LOG: ${guild.name}. sunucuya katıldım!`);
+})
+/////////////////
+client.on('message', message => {
+if (message.content === `<@${client.user.id}>`) {
+ message.reply('buyurun efendım ne emretmiştiniz :) Prefix: a! ')
+}
+});
+/////
 setTimeout(function() {
   
   let sunucu = client.guilds.get('sunucu id')
