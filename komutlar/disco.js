@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
     msg.guild.roles.find("name", discoR).setColor("RANDOM");
   }, 8000);
   msg.channel.send(
-    `<a:kedi:630308949580709948>Disco Başladı!<a:kedi:630308949580709948>`
+    `<a:Right:681130578074009607> Disco Başladı!<a:Left:681130578074009607>`
   );
 };
 
