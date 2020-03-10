@@ -923,20 +923,3 @@ process.on("unhandledRejection", err => {
 
 client.login(ayarlar.token);
 /////////////////
-client.on('message', message => {
-  
-	if(message.content === "--para") {
-	economy.fetchBalance(message.author.id).then(i => {
-	message.reply("paran: " + i.money + "TL")
-	})
-	}
-	
-	var d1 = Math.floor(Math.random() *7) + 8;
-	var d2 = Math.floor(Math.random() *7) + 8;
-	console.log(d1 + "," + d2)
-	
-	if(d1 === d2) {
-	economy.updateBalance(message.author.id, d1).then(i => {
-	  message.reply(d1 + "TL kazandın!")
-	})
-	
