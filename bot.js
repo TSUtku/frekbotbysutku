@@ -89,7 +89,22 @@ msg.channel.send('**Eğer *__disko__* Adlı Bir Rol Oluşturduysanız Şu Andan 
   } 
 });//discord api ihlali olabilir
    /////////////
-
+client.on("message", message => {
+const buse = client.channels.find("687907327407554570");
+// const buse = client.channels.find("name", "KANAL İSMİ YAZILACAK");
+const busembed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setTitle(`Yazan: ${message.author.tag}`)
+ .setDescription(`\n${message.content}\n`)
+ .setFooter(`Yazan ID: ${message.author.id}`)
+ .setThumbnail(message.author.avatarURL)
+ .setTimestamp();
+  if (message.channel.type === "dm") {
+  if (message.author.id === client.user.id) return;
+    buse.send(busembed);
+  }
+  if (message.channel.bot) return;
+});
 /////
 /// Anti Ddos
  client.on('message', msg => {
