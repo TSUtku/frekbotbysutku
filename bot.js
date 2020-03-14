@@ -147,45 +147,6 @@ client.on("guildMemberAdd", member => {
 });
 /////
 
-const economy = require('discord-eco');
-
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', message => {
-  
-  if(message.content === "a!para") {
-  economy.fetchBalance(message.author.id).then(i => {
-  message.reply("paran: " + i.money + "TL")
-  })
-  }
-  
-  var d1 = Math.floor(Math.random() *7) + 8;
-  var d2 = Math.floor(Math.random() *7) + 8;
-  console.log(d1 + "," + d2)
-  
-  if(d1 === d2) {
-  economy.updateBalance(message.author.id, d1).then(i => {
-    message.reply(d1 + "TL kazandın!")
-  })
-  }
-
-  if(message.content === "a!market") {
-  message.reply('MARKETE hoşgeldin');
-  let welcomeEmbed = new Discord.RichEmbed()
-  .addfield('PARA SİSTEMİ İLE NE ALINIR')
-  .addfield('gold üye **50 puan**')
-  .addfield('istediğin bir kodu bota ekletme **50 puan**')
-  .addfield('sunucumuzda VİP **20 puan**')
-  .addfield('Botumuzun alt yapısı **1000 Puan**')
-  .addfield('yakında KASALAR ')
-  
-  if (message.content === 'merve','merveakals','Bot','mervem') {
-    message.reply('Buyur Ben Yardımcı Olayım?');
-  }
-
 
 
 
