@@ -1,26 +1,173 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const ayarlar = require("../ayarlar.json");
+const db = require("quick.db");
+exports.run = async (client, message, args) => {
+  let prefix =
+    (await require("quick.db").fetch(`prefix_${message.guild.id}`)) ||
+    ayarlar.prefix;
+  if (!message.member.hasPermission("ADMINISTRATOR"))
+    return message.reply(
+      "Bu komutu kullanabilmek için `Yönetici` iznine sahip olmalısın!"
+    );
+  let panel = await db.fetch(`sunucupanel_${message.guild.id}`);
+  let rekoronline = await db.fetch(`panelrekor_${message.guild.id}`);
 
-exports.run = (client, message, args) => {
-    let guild = message.guild;
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`:x: Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
-  
-  guild.createChannel(`Toplam Kullanıcı : ${guild.memberCount}`, 'voice');
-  guild.createChannel(`Üye Sayısı : ${guild.members.filter(m => !m.user.bot).size}`, 'voice');
-  guild.createChannel(`Bot Sayısı : ${guild.members.filter(m => m.user.bot).size}`, 'voice');
+  if (panel)
+    return message.channel.send(
+      `Bu sunucuda panel zaten ayarlanmış! Devredışı bırakmak için;  \`${prefix}statskapat\``
+    );
 
-  message.channel.send(`:white_check_mark:  Sunucudaki üye sayısını kanallarda gösterecek bir sistem kuruldu.`);
-}; 
-//edited by dbe
+  message.channel
+    .send(
+      new Discord.RichEmbed()
+        .setColor("RED")
+        .setTitle("📊 SERVER PANEL")
+        .setDescription("Gerekli dosaylar kurulsun mu?.")
+        .setFooter('Onaylıyorsan 15 saniye içerisinde "evet" yazmalısın.')
+    )
+    .then(() => {
+      message.channel
+        .awaitMessages(response => response.content === "evet", {
+          max: 1,
+          time: 15000,
+          errors: ["time"]
+        })
+        .then(collected => {
+          db.set(`sunucupanel_${message.guild.id}`, message.guild.id);
+          try {
+            let role = message.guild.roles.find("name", "@everyone");
+            message.guild.createChannel(`📊 SERVER PANEL`, "category", [
+              { id: message.guild.id, deny: ["CONNECT"] }
+            ]);
+            message.guild
+              .createChannel(
+                `Toplam Üye • ${message.guild.members.size}`,
+                "voice"
+              )
+              .then(channel =>
+                channel.setParent(
+                  message.guild.channels.find(
+                    channel => channel.name === `📊 SERVER PANEL`
+                  )
+                )
+              )
+              .then(c => {
+                c.overwritePermissions(role, {
+                  CONNECT: false
+                });
+              });
+
+            message.guild
+              .createChannel(
+                `Aktif Üye • ${
+                  message.guild.members.filter(
+                    off => off.presence.status !== "offline"
+                  ).size
+                }`,
+                "voice"
+              )
+              .then(channel =>
+                channel.setParent(
+                  message.guild.channels.find(
+                    channel => channel.name === `📊 SERVER PANEL`
+                  )
+                )
+              )
+              .then(c => {
+                c.overwritePermissions(role, {
+                  CONNECT: false
+                });
+              });
+
+            message.guild
+              .createChannel(
+                `Botlar • ${
+                  message.guild.members.filter(m => m.user.bot).size
+                }`,
+                "voice"
+              )
+              .then(channel =>
+                channel.setParent(
+                  message.guild.channels.find(
+                    channel => channel.name === `📊 SERVER PANEL`
+                  )
+                )
+              )
+              .then(c => {
+                c.overwritePermissions(role, {
+                  CONNECT: false
+                });
+              });
+
+            message.guild
+              .createChannel(
+                `Rekor Aktiflik • ${
+                  message.guild.members.filter(
+                    off => off.presence.status !== "offline"
+                  ).size
+                }`,
+                "voice"
+              )
+              .then(channel =>
+                channel.setParent(
+                  message.guild.channels.find(
+                    channel => channel.name === `📊 SERVER PANEL`
+                  )
+                )
+              )
+              .then(c => {
+                c.overwritePermissions(role, {
+                  CONNECT: false
+                });
+              });
+            message.guild
+              .createChannel(
+                `Seste • ${
+                  message.guild.members.filter(a => a.voiceChannel).size
+                }`,
+                "voice"
+              )
+              .then(channel =>
+                channel.setParent(
+                  message.guild.channels.find(
+                    channel => channel.name === `📊 SERVER PANEL`
+                  )
+                )
+              )
+              .then(c => {
+                c.overwritePermissions(role, {
+                  CONNECT: false
+                });
+              });
+
+            db.set(
+              `panelrekor_${message.guild.id}`,
+              message.guild.members.filter(
+                off => off.presence.status !== "offline"
+              ).size
+            );
+
+            message.channel.send(
+              `Sunucu panel için gerekli kanallar oluşturulup, ayarlamalar yapıldı!  \`(Oda isimlerini değiştirmeyin, çalışmaz!)\``
+            );
+          } catch (e) {
+            console.log(e.stack);
+          }
+        });
+    });
+};
+
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ['panelkur'],
+  guildOnly: true,
+  aliases: ["kurulum"],
   permLevel: 3
 };
 
 exports.help = {
-  name: 'panelkur',
-  description: 'Sunucudaki üye sayısını kanallarda gösterecek bir sistem kurar.',
-  usage: 'panelkur'
+  name: "kurulum",
+  description:
+    "Sunucu İstatistiklerini Gösteren Panel Kurar Ve Sürekli Olarak Günceller.",
+  usage: "kurulum",
+  kategori: "yetkili"
 };
-   
