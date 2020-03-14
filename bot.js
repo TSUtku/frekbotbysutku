@@ -1195,6 +1195,7 @@ client.on("guildMemberAdd", async member => {
   member.addRole(otorol);
 });
 ////////////////////otorol
+//////
 const invites = {};
 
 const wait = require("util").promisify(setTimeout);
