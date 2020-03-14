@@ -89,6 +89,55 @@ client.on("message", async msg => {
   }
 }); //discord api ihlali olabilir
 /////////////
+const botadibotkoruma = "RealGiveWays"
+client.on('guildMemberAdd', (member, msg) => {
+  const message = member
+  db.fetch(`botkoruma_${message.guild.id}`).then(krma => {
+  if(!krma) return false;
+  if(krma) {
+    if(krma === "botkorumaaktifysfd�zolar�namk") {
+    const guild = member.guild;
+  let sChannel = member.guild.channels.find(c => c.name === 'bot-koruma')
+
+    if(member.user.bot !==true){
+
+    } 
+    else {
+
+    sChannel.send(`**${botadibotkoruma} Bot Koruma Sistemi**
+Sunucuya Bir Bot Eklendi Ve G�venlik Nedeniyle Banland�
+Banlanan Bot: **${member.user.tag}**
+**Dikkatli olmaniz Önerilir** RealGiveWays Bot koruma sistemi :warning: `)
+    .then(() => console.log(`yasakland� ${member.displayName}`))
+    .catch(console.error);
+      member.ban(member)
+    }
+    } else return false;
+    } else return false;
+  });
+});
+////////////////
+client.on("message", async message => {
+    { {  const sak = ["sa","1","6","s","a"]
+      if (message.author.bot) return;
+      const fuck = db.fetch(`mesajyazmaengel_${message.author.id}`)
+     var ilkuyarı = "{kişi} Spam Yapmayı Bırakman Lazım!".replace("{kişi}", message.author)
+     var mesaj = message
+     db.set(`mesajyazmaengel_${message.author.id}`, message.content)
+    // if(!6 < mesaj || message.content.size || message.content > 2) return message.channel.send(ilkuyarı)
+    if ((sak < 7)) return message.channel.send(ilkuyarı)
+      var harfuzatma = "{kişi} Harf Uzatmayı Durdur :)!".replace("{kişi}", message.author)
+      if(message.lenght > 3) return message.channel.send(harfuzatma)
+      var deneme2 = "{kişi} Spam Yapmayı Durdur RealGiveWays!".replace("{kişi}", message.author)
+    //  if(sak > 5 < sak) return message.channel.send(deneme2)
+     //if(sak < 1 > sak) return message.channel.send(deneme2)
+        if(sak > 6) return message.channel.send(deneme2)
+      if(6 > sak) return message.channel.send(deneme2)
+      if(6 < mesaj) return message.channel.send(deneme2)
+     //  if(12 < mesaj) return message.channel.send(deneme2)
+    }}
+    })
+///////
 client.on("guildMemberAdd", member => {
   setTimeout(() => {
     member.guild.channels

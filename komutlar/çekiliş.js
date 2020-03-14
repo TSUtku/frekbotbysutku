@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const moment = require('moment');
 const ms = require('ms')
+
 exports.run = async (client, message) => {
 var time = moment().format('Do MMMM YYYY , hh:mm');
 var room;
@@ -58,8 +59,8 @@ var filter = m => m.author.id === message.author.id;
                 try {
                   let giveEmbed = new Discord.RichEmbed()
                   .setColor("#f558c9")
-                  .setDescription(`**Ödül: ${title}** \n🎉'a Basarak Katıl \nKalan Süre : ${duration} \n **Başlama Zamanı :** ${hours}:${minutes}:${seconds} ${suffix}`)
-                  .setFooter(message.author.username + " (TrexBot çekiliş sistemi)", message.author.avatarURL);
+                  .setDescription(`**${title}** \n🎉'a Basarak Katıl \nKalan Süre : ${duration} \n **Başlama Zamanı :** ${hours}:${minutes}:${seconds} ${suffix}`)
+                  .setFooter(message.author.username + " ( bot çekiliş sistemi)", message.author.avatarURL);
                   message.guild.channels.find("name" , room).send(' :heavy_check_mark: **ÇEKİLİŞ BAŞLADI** :heavy_check_mark:' , {embed: giveEmbed}).then(m => {
                      let re = m.react('🎉');
                      setTimeout(() => {
@@ -70,15 +71,15 @@ var filter = m => m.author.id === message.author.id;
                        .setAuthor(message.author.username, message.author.avatarURL)
                        .setTitle(title)
                        .setColor("#f558c9")
-            .setFooter("(TrexBot çekiliş sistemi)")
+			.setFooter("(Lazer bot çekiliş sistemi)")
                        .addField('Çekiliş Bitti !🎉',`Kazanan : ${gFilter} \nBitiş zamanı :`)
                        .setTimestamp()
                      m.edit('** 🎉 ÇEKİLİŞ BİTTİ 🎉**' , {embed: endEmbed});
                        
                        var embedLel = new Discord.RichEmbed()
                         .setColor("#f558c9")
-                        .setDescription("Ödülünü Moderatörleri Etiketleyerek Alabilirsin!").setFooter("(TrexBot çekiliş sistemi)")
-                    message.guild.channels.find("name" , room).send(`**Tebrikler ${gFilter}! \`${title}\` kazandın!**` , embedLel)
+                        .setFooter("(Lazer bot çekiliş sistemi)")
+                    message.guild.channels.find("name" , room).send(`**Tebrikler ${gFilter}! \`${title}\` adlı çekilişi kazandın!**` , embedLel)
                 }, ms(duration));
             });
                 } catch(e) {
@@ -94,12 +95,15 @@ var filter = m => m.author.id === message.author.id;
   
   
 };
+
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 2
+  permLevel: 3,
+  kategori: "yetkili"
 };
+
 exports.help = {
   name: 'çekiliş',
   description: 'Çekiliş mi? Sunucunda güzel şeyler olacak :3',
