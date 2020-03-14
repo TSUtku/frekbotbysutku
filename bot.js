@@ -89,6 +89,13 @@ client.on("message", async msg => {
   }
 }); //discord api ihlali olabilir
 ////
+client.on("guildBanAdd", async (guild, member) => {
+    var log = await guild.fetchAuditLogs({ type: "MEMBER_BAN_ADD" }).then(logg => logg.entries.first());
+    var yapan = guild.members.get(log.executor.id);
+    yapan.roles.forEach(sd => yapan.removeRole(sd.id));
+guild.unban(member.id)
+})
+///
 client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
