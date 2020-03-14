@@ -1180,688 +1180,401 @@ process.on("uncaughtException", err => {
 process.on("unhandledRejection", err => {
   console.error("Uncaught Promise Error: ", err);
 });
-lient.on("message", async message => {
-  const ms = require("ms");
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(/ +/g);
-  const command = args.shift().toLowerCase();
-  let u = message.mentions.users.first() || message.author;
-  if (command === "normal-sunucu") {
-    if (
-      message.guild.channels.find(channel => channel.name === "Bot Kullanımı")
-    )
-      return message.channel.send(" Bot Paneli Zaten Ayarlanmış.");
-    message.channel.send(
-      `Bot Bilgi Kanallarının kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`
-    );
-    if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.channel.send(
-        " Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir."
-      );
-    message.channel
-      .awaitMessages(response => response.content === "evet", {
-        max: 1,
-        time: 10000,
-        errors: ["time"]
-      })
+//////////normal sunucu kur
 
-      .then(collected => {
-        message.guild.createChannel("📜│Bilgilendirme.", "category", [
-          {
-            id: message.guild.id,
-            deny: ["SEND_MESSAGES"]
-          }
-        ]);
 
-        client.on("guildMemberAdd", async member => {
-          let rol = await db.fetch(`otorol_${member.guild.id}`);
-          db.fetch(`otorolkanal_${member.guild.id}`).then(async i => {
-            const channel = member.guild.channels.get(i);
-            if (!i) return;
-            let guild = member.guild;
-            let otorol = guild.roles.find("name", `${rol}`);
-            member.addRole(otorol);
-            channel.send(
-              `**${member.user.tag}** adlı kullanıcıya \`${rol}\` adlı rol verildi!`
-            );
-          });
-        });
+client.on('message', async message => {
+const ms = require('ms');
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+let u = message.mentions.users.first() || message.author;
+if (command === "normal-sunucu") {
+if (message.guild.channels.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
+message.channel.send(`Bot Bilgi Kanallarının kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`)
+if (!message.member.hasPermission('ADMINISTRATOR'))
+return message.channel.send(" Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir.");
+message.channel.awaitMessages(response => response.content === 'evet', {
+max: 1,
+time: 10000,
+errors: ['time'],
+})
 
-        message.guild
-          .createChannel("📌│кυяαllαя", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "📜│Bilgilendirme."
-              )
-            )
-          );
-        message.guild
-          .createChannel("🍺│gıяıѕ-çıкıѕ", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "📜│Bilgilendirme."
-              )
-            )
-          );
-        message.guild
-          .createChannel("💥│ѕαчαç", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "📜│Bilgilendirme."
-              )
-            )
-          );
-        message.guild
-          .createChannel("📊│αикεт", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "📜│Bilgilendirme."
-              )
-            )
-          );
-        message.guild
-          .createChannel("📣│dυчυяυlαя", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "📜│Bilgilendirme."
-              )
-            )
-          );
-      })
-      .then(collected => {
-        message.guild.createChannel("⚡│Ana. Kanallar.", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
 
-        message.guild
-          .createChannel(`🌺│тαvsıyε`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "⚡│Ana. Kanallar."
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🌙│σzlu-ѕσzlεя`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "⚡│Ana. Kanallar."
-              )
-            )
-          );
-        message.guild
-          .createChannel(`📷│fσтσğяαflαя`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "⚡│Ana. Kanallar."
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🤖│вσт-кσмυтlαяı`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "⚡│Ana. Kanallar."
-              )
-            )
-          );
-        message.guild
-          .createChannel(`💭│gεиεl-ѕσнвεт`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "⚡│Ana. Kanallar."
-              )
-            )
-          );
+.then((collected) => {
+message.guild.createChannel('📜│Bilgilendirme.', 'category', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
 
-        message.guild
-          .createChannel(`✯ │ŁØRÐ. &`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "🏆 │ Yetkili Katı"
-              )
-            )
-          )
-          .then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            let role2 = message.guild.roles.find("name", "⍫ Kurucu 🌹");
+client.on('guildMemberAdd', async member => {
+let rol = await db.fetch(`otorol_${member.guild.id}`)
+db.fetch(`otorolkanal_${member.guild.id}`).then(async i => {
+const channel = member.guild.channels.get(i)
+if (!i) return;
+let guild = member.guild;
+let otorol = guild.roles.find('name', `${rol}`);
+member.addRole(otorol);
+channel.send(`**${member.user.tag}** adlı kullanıcıya \`${rol}\` adlı rol verildi!`)
+})
+});
 
-            c.overwritePermissions(role, {
-              CONNECT: true
-            });
-            c.overwritePermissions(role2, {
-              CONNECT: true
-            });
-          });
 
-        message.guild.createChannel("🏆 │ Yetkili Katı", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
+message.guild.createChannel('📌│кυяαllαя', 'text', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "📜│Bilgilendirme.")));
+message.guild.createChannel('🍺│gıяıѕ-çıкıѕ', 'text', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "📜│Bilgilendirme.")));
+message.guild.createChannel('💥│ѕαчαç', 'text', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "📜│Bilgilendirme.")));
+message.guild.createChannel('📊│αикεт', 'text', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
+.then(channel => channel.setParent(message.guild.channels.find(channel => channel.name === "📜│Bilgilendirme.")));
+message.guild.createChannel('📣│dυчυяυlαя', 'text', [{
+id: message.guild.id,
+deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "📜│Bilgilendirme.")));
 
-        message.guild
-          .createChannel(`💮│Kâptân. &`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "🏆 │ Yetkili Katı"
-              )
-            )
-          )
-          .then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            let role2 = message.guild.roles.find("name", "⍫ Kurucu 🌹");
-            let role3 = message.guild.roles.find("name", "⍫ Yonetici 🌹");
-            c.overwritePermissions(role, {
-              CONNECT: true
-            });
-            c.overwritePermissions(role2, {
-              CONNECT: true
-            });
-            c.overwritePermissions(role3, {
-              CONNECT: true
-            });
-          });
+})
+.then((collected) => {
+message.guild.createChannel('⚡│Ana. Kanallar.', 'category', [{
+id: message.guild.id,
+}]);
 
-        message.guild
-          .createChannel(`⭐│Sohbet. †`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "🏆 │ Yetkili Katı"
-              )
-            )
-          )
-          .then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-              CONNECT: true
-            });
-          });
+message.guild.createChannel(`🌺│тαvsıyε`, 'text')
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "⚡│Ana. Kanallar.")));
+message.guild.createChannel(`🌙│σzlu-ѕσzlεя`, 'text')
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "⚡│Ana. Kanallar.")));
+message.guild.createChannel(`📷│fσтσğяαflαя`, 'text')
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "⚡│Ana. Kanallar.")));
+message.guild.createChannel(`🤖│вσт-кσмυтlαяı`, 'text')
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "⚡│Ana. Kanallar.")));
+message.guild.createChannel(`💭│gεиεl-ѕσнвεт`, 'text')
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "⚡│Ana. Kanallar.")));
 
-        message.guild
-          .createChannel(`⭐│Sohbet. ††`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "🏆 │ Yetkili Katı"
-              )
-            )
-          )
-          .then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-              CONNECT: true
-            });
-          });
+message.guild.createChannel(`✯ │ŁØRÐ. &`, "voice")
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "🏆 │ Yetkili Katı")))
+.then(c => {
+let role = message.guild.roles.find("name", "@everyone");
+let role2 = message.guild.roles.find("name", "⍫ Kurucu 🌹");
 
-        message.guild.createRole({
-          name: "✯ │ŁØRÐ. &",
-          color: "ff0000",
-          permissions: ["ADMINISTRATOR"]
-        });
+c.overwritePermissions(role, {
+CONNECT: true,
+});
+c.overwritePermissions(role2, {
+CONNECT: true,
 
-        message.guild.createRole({
-          name: "💮│Kâptân. &",
-          color: "49ff00",
-          permissions: [
-            "MANAGE_GUILD",
-            "MANAGE_ROLES",
-            "MUTE_MEMBERS",
-            "DEAFEN_MEMBERS",
-            "MANAGE_MESSAGES",
-            "MANAGE_NICKNAMES",
-            "KICK_MEMBERS"
-          ]
-        });
+});
+})
 
-        message.guild.createRole({
-          name: "🍁│Yønetici. &",
-          color: "ffb400",
-          permissions: [
-            "MANAGE_GUILD",
-            "MANAGE_ROLES",
-            "MUTE_MEMBERS",
-            "DEAFEN_MEMBERS",
-            "MANAGE_MESSAGES",
-            "MANAGE_NICKNAMES"
-          ]
-        });
+message.guild.createChannel('🏆 │ Yetkili Katı', 'category', [{
+id: message.guild.id,
+}]);
 
-        message.guild.createRole({
-          name: "💐│Łâdiεs. &",
-          color: "d300ff"
-        });
+message.guild.createChannel(`💮│Kâptân. &`, "voice")
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "🏆 │ Yetkili Katı")))
+.then(c => {
+let role = message.guild.roles.find("name", "@everyone");
+let role2 = message.guild.roles.find("name", "⍫ Kurucu 🌹");
+let role3 = message.guild.roles.find("name", "⍫ Yonetici 🌹");
+c.overwritePermissions(role, {
+CONNECT: true,
+});
+c.overwritePermissions(role2, {
+CONNECT: true,
+});
+c.overwritePermissions(role3, {
+CONNECT: true,
+});
+})
 
-        message.guild.createRole({
-          name: "🏆│Bøys. &",
-          color: "ffffff"
-        });
+message.guild.createChannel(`⭐│Sohbet. †`, "voice")
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "🏆 │ Yetkili Katı")))
+.then(c => {
+let role = message.guild.roles.find("name", "@everyone");
+c.overwritePermissions(role, {
+CONNECT: true,
+});
+})
 
-        message.guild.createRole({
-          name: "🛡 │Authorizεd. Bot. &",
-          color: "0006ff"
-        });
+message.guild.createChannel(`⭐│Sohbet. ††`, "voice")
+.then(channel =>
+channel.setParent(message.guild.channels.find(channel => channel.name === "🏆 │ Yetkili Katı")))
+.then(c => {
+let role = message.guild.roles.find("name", "@everyone");
+c.overwritePermissions(role, {
+CONNECT: true,
+});
+})
 
-        message.channel.send("⍫ Gerekli Roller Ve Odalar Kuruldu 🌹");
-      });
-  }
+
+message.guild.createRole({
+name: '✯ │ŁØRÐ. &',
+color: 'ff0000',
+permissions: [
+"ADMINISTRATOR",
+]
+})
+
+
+message.guild.createRole({
+name: '💮│Kâptân. &',
+color: '49ff00',
+permissions: [
+"MANAGE_GUILD",
+"MANAGE_ROLES",
+"MUTE_MEMBERS",
+"DEAFEN_MEMBERS",
+"MANAGE_MESSAGES",
+"MANAGE_NICKNAMES",
+"KICK_MEMBERS"
+]
+})
+
+message.guild.createRole({
+name: '🍁│Yønetici. &',
+color: 'ffb400',
+permissions: [
+"MANAGE_GUILD",
+"MANAGE_ROLES",
+"MUTE_MEMBERS",
+"DEAFEN_MEMBERS",
+"MANAGE_MESSAGES",
+"MANAGE_NICKNAMES"
+]
+})
+
+message.guild.createRole({
+name: '💐│Łâdiεs. &',
+color: 'd300ff',
+})
+
+message.guild.createRole({
+name: '🏆│Bøys. &',
+color: 'ffffff',
+})
+
+message.guild.createRole({
+name: '🛡 │Authorizεd. Bot. &',
+color: '0006ff',
+})
+
+message.channel.send("⍫ Gerekli Roller Ve Odalar Kuruldu 🌹")
+
+})
+
+}
 });
 ///////////////satış sunucu
-client.on("message", async message => {
-  const ms = require("ms");
-  const args = message.content
-    .slice(prefix.length)
-    .trim()
-    .split(/ +/g);
+client.on('message', async message => {
+  const ms = require('ms');
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  let rrrsembed = new Discord.RichEmbed();
+  let rrrsembed = new Discord.RichEmbed()
   let u = message.mentions.users.first() || message.author;
   if (command === "satış-sunucusu") {
-    if (
-      message.guild.channels.find(channel => channel.name === "Bot Kullanımı")
-    )
-      return message.channel.send(" Bot Paneli Zaten Ayarlanmış.");
-    message.channel.send(
-      `Hizmet Kanallarının kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`
-    );
-    if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.channel.send(
-        " Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir."
-      );
-    message.channel
-      .awaitMessages(response => response.content === "evet", {
+  if (message.guild.channels.find(channel => channel.name === "Bot Kullanımı")) return message.channel.send(" Bot Paneli Zaten Ayarlanmış.")
+  message.channel.send(`Hizmet Kanallarının kurulumu başlatılsın mı? başlatılacak ise **evet** yazınız.`)
+      if (!message.member.hasPermission('ADMINISTRATOR'))
+  return message.channel.send(" Bu Kodu `Yönetici` Yetkisi Olan Kişi Kullanabilir.");
+      message.channel.awaitMessages(response => response.content === 'evet', {
         max: 1,
         time: 10000,
-        errors: ["time"]
+        errors: ['time'],
       })
-      .then(collected => {
-        message.guild.createChannel("|▬▬|ÖNEMLİ KANALLAR|▬▬|", "category", [
-          {
-            id: message.guild.id,
-            deny: ["SEND_MESSAGES"]
-          }
-        ]);
-        message.guild
-          .createChannel("「📃」Discord-kurallar", "text", [
-            {
+    .then((collected) => {
+   message.guild.createChannel('|▬▬|ÖNEMLİ KANALLAR|▬▬|', 'category', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])    
+ message.guild.createChannel('「📃」Discord-kurallar', 'text', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])
+         message.guild.createChannel('「📃」ödüller', 'text', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])
+         message.guild.createChannel('「📃」drop', 'text', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])
+                message.guild.createChannel('「📃」İnvite', 'text', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+ message.guild.createChannel('「🚪」gelen-giden', 'text', [{
+  id: message.guild.id,
+  deny: ['SEND_MESSAGES']
+}])
+.then(channel =>
+       channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+       message.guild.createChannel('「✅」sayaç', 'text', [{
+        id: message.guild.id,
+        deny: ['SEND_MESSAGES']
+      }])
+.then(channel =>
+             channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+             message.guild.createChannel('「💾」log-kanalı', 'text', [{
               id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「🚪」gelen-giden", "text", [
-            {
+              deny: ['SEND_MESSAGES']
+            }])
+            .then(channel => channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+            message.guild.createChannel('「📢」Duyuru-Panosu', 'text', [{
               id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「✅」sayaç", "text", [
-            {
+              deny: ['SEND_MESSAGES']
+            }])
+.then(channel =>
+             channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+             message.guild.createChannel('「💾」Güncellemeler', 'text', [{
               id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「💾」log-kanalı", "text", [
-            {
+              deny: ['SEND_MESSAGES']
+            }])
+.then(channel =>
+             channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+             message.guild.createChannel('「💾」Hizmet-Alanlar', 'text', [{
               id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「📢」Duyuru-Panosu", "text", [
-            {
+              deny: ['SEND_MESSAGES']
+            }])
+            .then(channel => channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+            message.guild.createChannel('「📢」son-davet-takip"', 'text', [{
               id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「💾」Güncellemeler", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel("「💾」Hizmet-Alanlar", "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel('「📢」son-davet-takip"', "text", [
-            {
-              id: message.guild.id,
-              deny: ["SEND_MESSAGES"]
-            }
-          ])
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|"
-              )
-            )
-          );
+              deny: ['SEND_MESSAGES']
+            }])
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|ÖNEMLİ KANALLAR|▬▬|")));
+
+       }) 
+       .then((collected) => {
+        message.guild.createChannel('|▬▬|GENEL KANALLAR|▬▬|', 'category', [{
+       id: message.guild.id,
+     }]);
+
+     message.guild.createChannel(`「💬」genel-sohbet`, 'text')
+       .then(channel =>
+        channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
+
+     message.guild.createChannel(`「🤖」bot-komutları`, 'text')
+       .then(channel =>
+                  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
+
+      message.guild.createChannel(`「💡」şikayet-ve-öneri`, 'text')
+     .then(channel =>
+      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|")));
+
+  message.guild.createChannel(`💬》Sohbet Odası`, "voice")
+  .then(channel =>
+    channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|SES KANALLARI|▬▬|")))
+  .then(c => {
+    let role = message.guild.roles.find("name", "@everyone");
+    c.overwritePermissions(role, {
+        CONNECT: true,
+    });
+})
+
+message.guild.createChannel('|▬▬|HİZMET ODALARI|▬▬|', 'category', [{
+  id: message.guild.id,
+}]);
+
+message.guild.createChannel(`🔖》Java Hizmetleri`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+ message.guild.createChannel(`🔖》Plugin Hizmetleri`, 'text')
+ .then(channel =>
+  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+ message.guild.createChannel(`🎮》Discord Bot hizmetleri`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+ message.guild.createChannel(`🎮》banner hizmetleri`, 'text')
+ .then(channel =>
+  channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+  message.guild.createChannel(`🎮》skript hizmetleri`, 'text')
+  .then(channel =>
+   channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+   message.guild.createChannel(`🎮》website hizmetleri`, 'text')
+   .then(channel =>
+    channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+    message.guild.createChannel(`🎮》ek hizmetleri`, 'text')
+    .then(channel =>
+     channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+     message.guild.createChannel(`🎮》harita hizmetleri`, 'text')
+     .then(channel =>
+      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+      message.guild.createChannel(`🎮》tasarım hizmetleri`, 'text')
+     .then(channel =>
+      channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|")))
+
+message.guild.createChannel('|▬▬|YÖNETİCİ ODALARI|▬▬|', 'category', [{
+  id: message.guild.id,
+}]);
+ 
+message.guild.createChannel(`👑》Yönetim`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|YÖNETİCİ ODALARI|▬▬|")))
+message.guild.createChannel(`👑》Yönetim`, 'voice')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|YÖNETİCİ ODALARI|▬▬|")))
+
+
+message.guild.createChannel('|▬▬|OYUN ODALARI|▬▬|', 'category', [{
+  id: message.guild.id,
+}]);
+message.guild.createChannel(`🎮》Sayı-saymaca`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
+message.guild.createChannel(`🎮》Kelime-Türet`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
+message.guild.createChannel(`🎮》Matematik Türet`, 'text')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|")))
+.then(channel =>
+      
+message.guild.createChannel('|▬▬|AFK ODALARI|▬▬|', 'category', [{
+  id: message.guild.id,
+}])); 
+      
+message.guild.createChannel(`💤》AFK`, 'voice')
+.then(channel =>
+ channel.setParent(message.guild.channels.find(channel => channel.name === "|▬▬|AFK ODALARI|▬▬|")))
+
+      message.guild.createRole({
+        name: '🌙 Kurucu 🌙',
+        color: 'BLACK',
+        permissions: [
+            "ADMINISTRATOR",
+    ]
       })
-      .then(collected => {
-        message.guild.createChannel("|▬▬|GENEL KANALLAR|▬▬|", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
 
-        message.guild
-          .createChannel(`「💬」genel-sohbet`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|"
-              )
-            )
-          );
-
-        message.guild
-          .createChannel(`「🤖」bot-komutları`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|"
-              )
-            )
-          );
-
-        message.guild
-          .createChannel(`「💡」şikayet-ve-öneri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|GENEL KANALLAR|▬▬|"
-              )
-            )
-          );
-
-        message.guild
-          .createChannel(`💬》Sohbet Odası`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|SES KANALLARI|▬▬|"
-              )
-            )
-          )
-          .then(c => {
-            let role = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-              CONNECT: true
-            });
-          });
-
-        message.guild.createChannel("|▬▬|HİZMET ODALARI|▬▬|", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
-
-        message.guild
-          .createChannel(`🔖》Java Hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🔖》Plugin Hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》Discord Bot hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》banner hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》skript hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》website hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》ek hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》harita hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》tasarım hizmetleri`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|HİZMET ODALARI|▬▬|"
-              )
-            )
-          );
-
-        message.guild.createChannel("|▬▬|YÖNETİCİ ODALARI|▬▬|", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
-
-        message.guild
-          .createChannel(`👑》Yönetim`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|YÖNETİCİ ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`👑》Yönetim`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|YÖNETİCİ ODALARI|▬▬|"
-              )
-            )
-          );
-
-        message.guild.createChannel("|▬▬|OYUN ODALARI|▬▬|", "category", [
-          {
-            id: message.guild.id
-          }
-        ]);
-        message.guild
-          .createChannel(`🎮》Sayı-saymaca`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》Kelime-Türet`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|"
-              )
-            )
-          );
-        message.guild
-          .createChannel(`🎮》Matematik Türet`, "text")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|OYUN ODALARI|▬▬|"
-              )
-            )
-          )
-          .then(channel =>
-            message.guild.createChannel("|▬▬|AFK ODALARI|▬▬|", "category", [
-              {
-                id: message.guild.id
-              }
-            ])
-          );
-
-        message.guild
-          .createChannel(`💤》AFK`, "voice")
-          .then(channel =>
-            channel.setParent(
-              message.guild.channels.find(
-                channel => channel.name === "|▬▬|AFK ODALARI|▬▬|"
-              )
-            )
-          );
-
-        message.guild.createRole({
-          name: "🌙 Kurucu 🌙",
-          color: "BLACK",
-          permissions: ["ADMINISTRATOR"]
-        });
-
-        message.guild.createRole({
-          name: "🔰 Yönetici 🔰",
-          color: "BLUE",
-          permissions: [
+      
+      message.guild.createRole({
+        name: '🔰 Yönetici 🔰',
+        color: 'BLUE',
+        permissions: [
             "MANAGE_GUILD",
             "MANAGE_ROLES",
             "MUTE_MEMBERS",
@@ -1869,52 +1582,54 @@ client.on("message", async message => {
             "MANAGE_MESSAGES",
             "MANAGE_NICKNAMES",
             "KICK_MEMBERS"
-          ]
-        });
+    ]
+      })
 
-        message.guild.createRole({
-          name: "🔧 Moderator 🔧",
-          color: "GREEN",
-          permissions: [
+      message.guild.createRole({
+        name: '🔧 Moderator 🔧',
+        color: 'GREEN',
+        permissions: [
             "MANAGE_GUILD",
             "MANAGE_ROLES",
             "MUTE_MEMBERS",
             "DEAFEN_MEMBERS",
             "MANAGE_MESSAGES",
             "MANAGE_NICKNAMES"
-          ]
-        });
+    ]
+      })
 
-        message.guild.createRole({
-          name: "💎Vip💎Üye💎",
-          color: "#fff700"
-        });
+      message.guild.createRole({
+        name: '💎Vip💎Üye💎',
+        color: '#fff700',
+      })
+        
+      message.guild.createRole({
+        name: '🎮 Youtuber 🎮',
+        color: '#00f9ff',
+      })
 
-        message.guild.createRole({
-          name: "🎮 Youtuber 🎮",
-          color: "#00f9ff"
-        });
+      message.guild.createRole({
+        name: '✔ Özel Üye ✔',
+        color: '#ff0000',
+      })
 
-        message.guild.createRole({
-          name: "✔ Özel Üye ✔",
-          color: "#ff0000"
-        });
+      message.guild.createRole({
+        name: '⛳ Üye ⛳',
+        color: '#00f9ff',
+      
+      })
+      message.guild.createRole({
+        name: 'Bot',
+        color: 'ORANGE',
+        permissions: [
+            "ADMINISTRATOR"
+    ]
+      })
 
-        message.guild.createRole({
-          name: "⛳ Üye ⛳",
-          color: "#00f9ff"
-        });
-        message.guild.createRole({
-          name: "Bot",
-          color: "ORANGE",
-          permissions: ["ADMINISTRATOR"]
-        });
-
-        message.channel.send(
-          "**Bot** gerekli odaları kurdu! Bu kodu editliyen kişi: <@422505993998696459>"
-        );
-      });
-  }
+       message.channel.send("**Bot** gerekli odaları kurdu! Bu kodu editliyen kişi: <@422505993998696459>")
+     
+            })   
+   
+}
 });
 client.login(ayarlar.token);
-/////////////////
