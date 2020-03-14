@@ -1128,7 +1128,8 @@ client.on("guildMemberAdd", member => {
     );
   });
 });
-//////////////////////davettakip
+//////////
+/////
 
 client.elevation = message => {
   if (!message.guild) {
