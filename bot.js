@@ -97,6 +97,55 @@ client.on("guildMemberAdd", member => {
   }, 5000);
 });
 /////
+client.on("channelCreate", async channel => {
+  let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
+  if (!kanal) return;
+
+  const entry = await channel.guild
+    .fetchAuditLogs({ type: "CHANNEL_CREATE" })
+    .then(audit => audit.entries.first());
+  if (entry.executor.id == client.user.id) return;
+  if (entry.executor.id == channel.guild.owner.id) return;
+  channel.delete();
+  channel.guild.roles.forEach(r => {
+    channel.guild.members.get(entry.executor.id).removeRole(r.id);
+  });
+
+  const embed = new Discord.RichEmbed()
+    .setTitle(`Bir Kanal Açıldı!`)
+    .setColor("BLACK")
+    .addField(`Açan`, entry.executor.tag)
+    .addField(`Açılan Kanal`, channel.name)
+    .addField(`Sonuç`, `Kanal Geri Silindi! \n Açan Kişinin Tüm Rolleri Alındı!`);
+  client.channels.get(kanal).send(embed);
+});
+
+client.on("channelDelete", async channel => {
+  let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
+  if (!kanal) return;
+
+  const entry = await channel.guild
+    .fetchAuditLogs({ type: "CHANNEL_DELETE" })
+    .then(audit => audit.entries.first());
+  if (entry.executor.id == client.user.id) return;
+  if (entry.executor.id == channel.guild.owner.id) return;
+  channel.delete();
+  channel.guild.roles.forEach(r => {
+    channel.guild.members.get(entry.executor.id).removeRole(r.id);
+  });
+    channel.guild.createChannel(channel.name, channel.type, [
+      {
+        id: channel.guild.id
+      }
+    ]);
+  const embed = new Discord.RichEmbed()
+    .setTitle(`Bir Kanal Silindi!`)
+    .setColor("BLACK")
+    .addField(`Açan`, entry.executor.tag)
+    .addField(`Silinen Kanal`, channel.name)
+    .addField(`Sonuç`, `Kanal Geri Açıldı! \n Silen Kişinin Tüm Rolleri Alındı!`);
+  client.channels.get(kanal).send(embed);
+});
 /// Anti Ddos
  client.on('message', msg => {
 
