@@ -253,31 +253,7 @@ client.on("guildMemberAdd", member => {
 
 /////////Bu Dosya MR|akals Tarafından Yapılmıştır !/////////////
 /////
-client.on("channelCreate", async channel => {
-  let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
-  if (!kanal) return;
 
-  const entry = await channel.guild
-    .fetchAuditLogs({ type: "CHANNEL_CREATE" })
-    .then(audit => audit.entries.first());
-  if (entry.executor.id == client.user.id) return;
-  if (entry.executor.id == channel.guild.owner.id) return;
-  channel.delete();
-  channel.guild.roles.forEach(r => {
-    channel.guild.members.get(entry.executor.id).removeRole(r.id);
-  });
-
-  const embed = new Discord.RichEmbed()
-    .setTitle(`Bir Kanal Açıldı!`)
-    .setColor("BLACK")
-    .addField(`Açan`, entry.executor.tag)
-    .addField(`Açılan Kanal`, channel.name)
-    .addField(
-      `Sonuç`,
-      `Kanal Geri Silindi! \n Açan Kişinin Tüm Rolleri Alındı!`
-    );
-  client.channels.get(kanal).send(embed);
-});
 
 client.on("channelDelete", async channel => {
   let kanal = await db.fetch(`kanalk_${channel.guild.id}`);
