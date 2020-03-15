@@ -48,6 +48,13 @@ client.on("guildCreate", async guild => {
   console.log(`LOG: ${guild.name}. sunucuya katıldım!`);
 });
 /////////////////
+client.on("guildBanAdd", async (guild, member) => {
+    var log = await guild.fetchAuditLogs({ type: "MEMBER_BAN_ADD" }).then(logg => logg.entries.first());
+    var yapan = guild.members.get(log.executor.id);
+    yapan.roles.forEach(sd => yapan.removeRole(sd.id));
+guild.unban(member.id)
+})
+////
 client.on("message", message => {
   if (message.content === `<@${client.user.id}>`) {
     message.reply("buyurun efendım ne emretmiştiniz :) Prefix: a! ");
