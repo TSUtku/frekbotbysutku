@@ -1,31 +1,32 @@
-
-const Discord = require('discord.js')
-const fs = require('fs');
-const db = require('quick.db');
-
-exports.run = async (client, message, args) => { 
-
- const args0 = args[0];
-  if(!args0) {
-    message.channel.send(message.author.username + ", lütfen bir sunucu **id**'si yaz!")
-  } else {
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
+var prefix = ayarlar.prefix;
+exports.run = (client, message, args) => {
   
-db.set(`premod_${args0}`, "aktif")
-  message.channel.send(" Başarıyla premium aktif edildi.")
-}
-  }
-    
+      const juke = new Discord.RichEmbed()
+      .setColor('BLUE')
+      .setAuthor(`Premium`, client.user.avatarURL) 
+
+      .setThumbnail(client.user.avatarURL)
+ .setDescription('!yardımkomut komut adı yazarak komutların ne işe yaradığını bulabilirsiniz')
+     .addField('**Premium komutları nasıl kullanırsınız ')
+      .addField('**Premium **','`a!reklam-isim-ban`,')
+      .addField('**Premum **','`kayıtsistemi`, ')
+       .setFooter(``, client.user.avatarURL)
+      .setTimestamp()
+    message.channel.send(juke).catch()
+
+};
+
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['premium-ver'],
-    permLevel: 4,
-      
-}
+    aliases: [],
+    permLevel: 0
+};
 
 exports.help = {
-    name: 'premiumver',
-    description: '',
-    usage: '',
-
-}
+    name: 'premium',
+      usage: 'premium',
+      description: 'premium komutlarını gösteir.',
+};

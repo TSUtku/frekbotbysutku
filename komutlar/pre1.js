@@ -8,25 +8,22 @@ exports.run = async(client, message, args) => {
       
       return message.channel.send(" Bu sunucuda **premium mod aktif değil**, bu sebepten dolayı premium sunucu kodlarını **kullanamazsınız**.")
 
-    
-  } else {
-   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(' | Bu komutu kullanabilmek için `Yönetici` yetkisine sahip olmalısın!')
-   let rol = message.mentions.roles.first() || message.guild.roles.get(args[0]) || message.guild.roles.find(rol => rol.name === args[0]);
-  if (!rol) return message.channel.send('Herkese rol verebilmem için bir rol etiketlemelisin.')
-  
-  
-   const embed = new Discord.RichEmbed()
-     .setDescription(`Herkese ${rol} adlı rol verildi!`)
-        .setColor(client.ayarlar.renk)
-   const ver = new Discord.RichEmbed()
-   .setDescription('Bir kullanıcıya ``' + rol.name + '`` adlı rol verildi!')
-   .setColor(client.ayarlar.renk)
-   
-   message.guild.members.forEach(u => {
-u.addRole(rol)
-})
-  // message.channel.send('Herkese **'+ rol.name +'** adlı rol verildi!')
-  message.channel.send(embed)
+
+    if (!message.member.hasPermission('ADMINISTRATOR'))
+        return message.channel.send(':no_entry: Bu komudu kullanabilmek için `Yönetici` yetkisine sahip olmalısın!')
+    if (!args[0]) return message.channel.send(':no_entry: Sistemi kullanabilmek için: `reklamisimban aç veya kapat`')
+
+    if (args[0] == 'aç') {
+        db.set(`reklamisimban_${message.guild.id}`, 'acik')
+        message.channel.send(`Reklam isim ban sistemi açıldı`)
+
+    }
+    if (args[0] == 'kapat') {
+        db.set(`reklamisimban_${message.guild.id}`, 'kapali')
+        message.channel.send(`Reklam isim ban sistemi kapatıldı`)
+
+    }
+
 
 }
 };
@@ -34,12 +31,12 @@ u.addRole(rol)
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['toplu-rol-ver','herkeserolver','hrv'],
+    aliases: ['reklam-ban',],
     permLevel: 3
 }
 
 exports.help = {
-    name: 'herkese-rol-ver',
+    name: 'reklam-isim-ban',
     description: 'Herkese rol verir.',
     usage: 'herkese-rol-ver @rol / rol-ismi'
 }
