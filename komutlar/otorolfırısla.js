@@ -34,13 +34,13 @@ module.exports.run = async (client, message, args) => {
 
 exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: ["otorolsıfırla"],
+  guildOnly: false,
+  aliases: ["rol-koruma-sıfırla"],
   permLevel: 3
 };
 
 exports.help = {
-  name: "otorol-sıfırla",
+  name: "rol-koruma-sıfırla",
   description: "kanal-koruma-sıfırla",
   usage: "kanal-koruma-sıfırla"
 };

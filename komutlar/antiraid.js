@@ -1,14 +1,3 @@
-const db = require('quick.db')
-const Discord = require('discord.js')
-
-exports.run = async (client, message, args, config) => {
-  let kullanıcı = await db.fetch(`gold_${message.author.id}`);
-
-  if( kullanıcı == undefined){
-message.reply("**Maalesef bu komutu kullanamazsın gold üye değilsin :(**")
-  }else{
-      if( kullanıcı == "gold"){
-
 const Discord = require('discord.js');
 const db = require('quick.db');
 
@@ -53,22 +42,3 @@ exports.help = {
   description : "Sunucuyu botlara karşı koruyan sistem. (Kullanmanızı öneririz)",
   usage : "sunucu-koruma"
 }
-  }
-
-    }
-      
-  }
-
-exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 3
-};
-
-exports.help = {
-  name: 'anti-raid', 
-  description: "",
-  usage: ''
-};
-   
