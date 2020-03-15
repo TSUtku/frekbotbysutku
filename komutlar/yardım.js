@@ -15,6 +15,7 @@ exports.run = (client, message, args) => {
     .addField('** MÜZİK KODLARI(9**',   `MÜZİK KODLARI @MERVEAKALS. \n` + '`GELDİ`, ')
  .addField('**SEVİYE SİSTEMİ**',   `Seviye sistemleri **SADECE YETKİLİLER KULLANABILIR**. \n` + '`a!seviye ödüller [belirli seviyeye gelince o rölü verme]`, `a!renk [kendinize özel renk ayarlarsınız]`, `a!reset [reset atar]`, `a!seviye resim [resim ayarlar]`, `a!saydamlaştır saydamlaştırır`, ')
  .addField('**SUNUCU İÇİN İDEAL(9**',   `Koruma sistemlerine kadar \n` + '`a!kanal-koruma`, `a!kanal-koruma-sıfırla`, `a!rol-koruma`,, `a!hazır-sunucu-komutları`, , `a!sunucu-koruma` , `a!ototag`, `a!kurulum-a!statskapat`  ')
+    .addField('**Premium**',   `sadece premium olanlar kullanabilir. \n` + '`a!yak`, ')
     .setFooter(`© ${client.user.username} ` , client.user.avatarURL)
     .setTimestamp()
     message.channel.send(embedyardim).catch()
