@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
  
 const e = new Discord.RichEmbed()
 .setColor('BLACK')
-.setDescription(`Mevcut ürünler: Gold Üye - 3.000 Puan!\n\nSatın alma: ${prefix}market gold`)
+.setDescription(`Mevcut ürünler: Gold Üye - 200 Puan!\n\nSatın alma: ${prefix}market gold: \n\nVip - 200 Puan!\n\nSatın alma:merveye yaz`)
 message.channel.send(e)
       return
     }
