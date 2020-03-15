@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
  .setDescription('!yardımkomut komut adı yazarak komutların ne işe yaradığını bulabilirsiniz')
      .addField('**Premium komutları nasıl kullanırsınız ')
       .addField('**Premium **','`a!reklam-isim-ban`,')
-      .addField('**Premum **','`kayıtsistemi`, ')
+      .addField('**Premum **','`a!güvenlik`, ')
        .setFooter(``, client.user.avatarURL)
       .setTimestamp()
     message.channel.send(juke).catch()
