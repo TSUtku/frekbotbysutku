@@ -20,7 +20,7 @@ exports.run = (client, message) => {
   .addField(`Ne Kadar Süredir Aktif:`, `${duration}`, true)
   .addField("Ping:", `${client.ping}`, true)
   .addField("Discord.js Sürümü:", `${Discord.version}`, true)
-  .addField(`Davet Et`, `[Tıkla](https://discordapp.com/oauth2/authorize?client_id=678276271515369472&scope=bot&permissions=2146958847)`, true)
+  .addField(`Davet Et`, `[Tıkla](https://discordapp.com/oauth2/authorize?client_id=688666708931641359&scope=bot&permissions=2146958847)`, true)
   message.channel.sendEmbed(istatistikozel)
 };
 
