@@ -4,8 +4,8 @@ exports.run = (client, message, args) => {
   
 
 
-message.channel.send(`MC-EŞŞEK Botun Sunucunuzu Böyle Koruması İçin YÖNETİCİ Yetkisi Olmalı Ve Sonrasında Kendiliğinden Saldırıları Önler.
-https://youtu.be/QTE84_-4jb0`) 
+message.channel.send(`Mr|Eagles Botun Sunucunuzu Böyle Koruması İçin YÖNETİCİ Yetkisi Olmalı Ve Sonrasında Kendiliğinden Saldırıları Önler.
+https://www.youtube.com/channel/UChAFWOIF6OJjuD5d3FIimGg?view_as=subscriber`) 
   };
 exports.conf = {
   enabled: true,  
