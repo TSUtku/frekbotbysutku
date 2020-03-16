@@ -19,8 +19,8 @@ Puanınızı ve market menüsünü gösterir.
 
 `)
  .addField("!p-topaz", `
-5.000 puan karşılığında topaz kasa açarsınız.
-İçinden rastgele 1-3 gün arası gold üye çıkar.
+2.500 puan karşılığında topaz kasa açarsınız.
+İçinden rastgele 1-2 gün arası gold üye çıkar.
 `)
  
  .addField("!p-yakut", `
