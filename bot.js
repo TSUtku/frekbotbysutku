@@ -99,7 +99,7 @@ const botToken = "";  //Burası Boş Kalsın
 
 //Load up the bot...
 const bot = new Discord.Client();
-bot.login(botToken);
+
 
 //If there isn't a reaction for every role, scold the user!
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
