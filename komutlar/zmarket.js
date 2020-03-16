@@ -35,17 +35,17 @@ message.channel.send(e)
       message.channel.send({embed})
     
     
-  } else if (para < 3000) {
+  } else if (para < 200) {
         message.channel.send(`Ne yazık ki yeterli puana sahip değilsin!\nGold üye 3.000 Puan!`)
-    } else if  (para > 3000) {
+    } else if  (para > 200) {
 message.channel.send(`Artık goldsun!`)
-db.add(`para_${message.member.id}`, -3000)
+db.add(`para_${message.member.id}`, -200)
 db.set(`gold_${message.member.id}`, 'acik')
 
     
-} else if  (para = 3000) {
+} else if  (para = 200) {
   message.channel.send(`Artık goldsun!`)
-  db.add(`para_${message.author.id}`, -3000)
+  db.add(`para_${message.author.id}`, -200)
 db.set(`gold_${message.member.id}`, 'acik')
       }
       return
