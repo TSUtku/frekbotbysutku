@@ -3,13 +3,7 @@ const fs = require('fs');
 const ms = require("ms")
 const db = require('quick.db')
 exports.run = async (client, message, args) => {
-  	if (!message.guild) {
-    const ozelmesajuyari = new Discord.RichEmbed()
-    .setColor(0xFF0000)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .addField(':warning: Uyarı :warning:', '`+sunucutanıt` adlı komutu özel mesajlarda kullanamazsın.')
-    return message.author.sendEmbed(ozelmesajuyari); }
+  	if (!message.guild) return
     if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("Bu Komutu kullanmanız için `Sunucu_Yönet` Yetkisine sahip olmalısınız.")
     let kullanildii = JSON.parse(fs.readFileSync('./sunucutanıt.json', 'utf8'));
   if (!kullanildii[message.guild.id]) kullanildii[message.guild.id] = {
@@ -18,19 +12,28 @@ exports.run = async (client, message, args) => {
   if (kullanildii[message.guild.id].gunlukkullanim == 0)
   {
         const embed = new Discord.RichEmbed()
-  .setTitle('BAŞARILI')
-  .setDescription('Sunucu [Burada](Discord Sunucu Linkiniz) Tanıtıldı! \n\n 12 Saat Sonra Sunucunuzu Tekrardan Tanıtabilirsiniz. \n\n Sunucunu Tanıtabilmek İçin Beni [Ekle!](https://discordapp.com/oauth2/authorize?client_id=678276271515369472&scope=bot&permissions=2146958847)')
-  .setColor('GREEN')
+  .setAuthor('MREagles BOT', client.user.avatarURL)
+  .setTitle('MREagles BOT', client.user.avatarURL)
+  .setURL("https://discord.gg/UcMAvy")
+  .setDescription("a!sunucutanıt Kullandınız.")
+  .addField('Sizin Sunucunuz Burada Tanıtıldı', `[Tıkla](https://discord.gg/dJvjZs)`)
+        .setTimestamp()
+  .addField("Sizde sunucunuzu tanıtmak istiyorsanız.", "a!botbilgi yazarak beni sunucunuza ekleyebilirsiniz.")
+  .setColor('BLUE')
  message.channel.sendEmbed(embed);
     message.channel.createInvite({maxAge: 0}).then((invite) => {
         const embed = new Discord.RichEmbed()
-            .addField(` Sunucu Sahibi`, message.author.tag, true)
-            .addField(` Sunucu İsmi`, message.guild.name, true)
+      .setAuthor('MREagles BOT', client.user.avatarURL)
+      .setTitle('MREagles BOT', client.user.avatarURL)
+      .setURL("https://discord.gg/dJvjZs")
+      .addField(` Sunucu Sahibi`, message.author.tag, true)
+      .addField(` Sunucu İsmi`, message.guild.name, true)
       .addField(` Sunucudakı Üye Sayısı`, message.guild.members.size, true)
       .addField(` Sunucu Davet Linki`, invite.url, true)
-            .setColor('RANDOM')
+            .setColor('BLUE')
+        .setTimestamp()
       .setThumbnail(message.guild.iconURL)
-       client.channels.get('678298107783675907').send(embed)
+       client.channels.get('689139292559376434').send(embed)
             });
   kullanildii[message.guild.id].gunlukkullanim = 1
     
@@ -48,17 +51,19 @@ exports.run = async (client, message, args) => {
   
   if (kullanildii[message.guild.id].gunlukkullanim == 1)
   {
-  message.channel.send({embed: {
-      description: '**BAŞARISIZ TANITIM** \n\nBu komut zaten kullanılmış!\n\nSunucunu 12 saate 1 defa tanıtabilirsin! \n\n[ßȲ ǤṜĪ₦ƉĒṜ | Discord.js | Kod Paylaşım](https://discord.gg/KJ6faYU) \n[Righter Ekle](https://discordapp.com/oauth2/authorize?client_id=525313553734041600&scope=bot&permissions=2146958847)'
-            }});
+  message.reply("Bu özelliği `(24)` Saat içinde yalnızca 1 kez kullanabilirsiniz")
   }
 };
+
+
+
 exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['sunucutanıt'],
     permLevel: 0,
 }
+
 exports.help = {
     name: 'sunucunutanıt',
     description: 'Sunuzunuzu Tanıtmak İçin En Uygun Kod!',
