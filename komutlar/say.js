@@ -9,7 +9,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
     .setColor("RANDOM")
     .setAuthor(message.guild.name, message.guild.iconURL)
     .setThumbnail(message.guild.iconURL)
-
+     
     .setDescription(
       `Sunucu Toplam Üye: ${message.guild.memberCount} \nToplam Aktif Üye: ${
         message.guild.members.filter(b => b.presence.status !== "offline").size
@@ -31,6 +31,7 @@ exports.run = async (client, message, args, prefix, ayar, emoji) => {
           .members.filter(x => x.presence.status !== "offline").size
       } \nSes Kanalında Bulunan: ${
         message.guild.members.filter(a => a.voiceChannel).size
+   
       }`
     );
   message.channel.send(embeddd);
