@@ -1,35 +1,25 @@
-const Discord = require('discord.js')
-const fs = require('fs');
-const ayarlar = require('../ayarlar.json');
-let kanal = JSON.parse(fs.readFileSync("./ayarlar/kayit1.json", "utf8"));
-var prefix = ayarlar.prefix;
-exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`Bu Komutu Kullanabilmek İçin **Yönetici** İznine Sahip Olmalısın!`);
+const Discord = require('discord.js');
+const db = require('quick.db')
+exports.run = (client, message, args) => { 
   
-  let channel = message.mentions.channels.first()
-    if (!channel) {
-        message.channel.send(' <a:x_:621485408324157460> | Bu Özelliği Ayarlamam İçin Bir Kanal Etiketlemelisin Örnek: `!kayit-kanal-ayarla  #kayitkanal`')
-        return
-    }
-    if(!kanal[message.guild.id]){
-        kanal[message.guild.id] = {
-            resim: channel.id
-        };
-    }
-    fs.writeFile("./ayarlar/kayit1.json", JSON.stringify(kanal), (err) => {
-        console.log(err)
-    })
-    message.channel.send(`<a:c_:621485430025748493> | ** Üyelerin Kayıt Olacağı Kanal ${channel} Olarak Ayarlandı.** `)
-}
-    
+let kanal = message.mentions.channels.first()
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  
+ if(!kanal) return message.channel.send(`
+${client.emojis.get("647760202875142154")} Bu Özelliği Ayarlamam İçin Bir Kanal Etiketlemelisin Örnek: !kayit-kanal-ayarla \`#kayitkanal\``)
+ 
+  message.channel.send(`${client.emojis.get("647746144155467786")} Kayıt Kanalını **${kanal}** Olarak Ayarladım! `)
+  db.set(`kayitKanal_${message.guild.id}`, kanal.id) 
+};
 exports.conf = {
-    enabled: true,
-    guildOnly: false,
-    aliases: [],
-    permLevel: 2
-}
+  enabled: true,  
+  guildOnly: false, 
+  aliases: [], 
+  permLevel: 0
+};
+
 exports.help = {
-    name: 'kayıt-kanal-ayarla',
-    description: 'Giriş Çıkış Kanalını Ayarlar.',
-    usage: 'kayit-kanal-ayarla #kanal '
-}
+  name: 'kayit-kanal-ayarla',
+  description: 'taslak', 
+  usage: 'Otorol-ayarla'
+};
