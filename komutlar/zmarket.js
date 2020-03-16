@@ -1,74 +1,76 @@
-const Discord = require('discord.js');
-const db = require('quick.db');
+const Discord = require('discord.js'); 
+const db = require("quick.db")
+exports.run = async(client, message, args) => {
 
-exports.run = async (client, message, args) => {
+  if (!db.fetch(`goldpuan_${message.author.id}`)) {
+    const Embed = new Discord.RichEmbed()
+ .setTimestamp()
+ .setAuthor("EŞŞEK-AT", client.user.avatarURL)
+.setColor("BLUE")
+.setTitle("EŞŞEK-AT BOT")
+ .setURL("https://discordapp.com/oauth2/authorize?client_id=647386467844227074&scope=bot&permissions=8")
 
-  let istek = args[0]
+ .setDescription(`
+${message.author}, senin puanın: **0**
+`)
+ .addField("!p-market | !p-menu", `
+Puanınızı ve market menüsünü gösterir.
 
-  let user = message.mentions.users.first() || message.member;
-  let gold = await db.fetch(`gold_${message.member.id}`);
-  let para = await db.fetch(`para_${message.author.id}`);
-
-
+Etkinlikleri tamamlayarak
+bedava \`Gold Üye ve Ürünler\` alabilirsiniz!
+`)
+ .addField("Sohbet Etmek", `
+sizlere 5 dakikada rastgele 5-75 arası puan verir.
+`)
  
-
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || "a!";
-
-  try {
-    
-    if (!istek) {
+ .addField("!günlükhediyem", `
+Her gün alınabilir.
+1 oy karşılığında \`500-2.000\` arasında rastgele hediye puan alabilirsin.
+`)
  
-const e = new Discord.RichEmbed()
-.setColor('BLACK')
-.setDescription(`Mevcut ürünler: Gold Üye - 200 Puan!\n\nSatın alma: ${prefix}market gold: \n\nVip - 200 Puan!\n\nSatın alma:merveye yaz`)
-message.channel.send(e)
-      return
-    }
-    
-    if (istek === 'gold') {
+ .setFooter("© Mcadventuretime.com", client.user.avatarURL)
+ 
+ return message.channel.send(Embed)
+  }
+ const Embed = new Discord.RichEmbed()
+ .setTimestamp()
+ .setAuthor("EŞŞEK-AT", client.user.avatarURL)
+.setColor("BLUE")
+.setTitle("EŞŞEK-AT BOT")
+ .setURL("https://discordapp.com/oauth2/authorize?client_id=647386467844227074&scope=bot&permissions=8")
 
-      if (gold == 'acik') {
-      const embed = new Discord.RichEmbed()
-        .setDescription(`Zaten goldsun!`)
-    .setColor('BLACK')
-      .setTimestamp()
-      message.channel.send({embed})
-    
-    
-  } else if (para < 200) {
-        message.channel.send(`Ne yazık ki yeterli puana sahip değilsin!\nGold üye 200 Puan!`)
-    } else if  (para > 200) {
-message.channel.send(`Artık goldsun!`)
-db.add(`para_${message.member.id}`, -200)
-db.set(`gold_${message.member.id}`, 'acik')
+ .setDescription(`
+${message.author}, senin puanın **${db.fetch(`goldpuan_${message.author.id}`)}**
+`)
+ .addField("!p-market | !p-menu", `
+Puanınızı ve market menüsünü gösterir.
 
-    
-} else if  (para = 200) {
-  message.channel.send(`Artık goldsun!`)
-  db.add(`para_${message.author.id}`, -200)
-db.set(`gold_${message.member.id}`, 'acik')
-      }
-      return
-    }
-
-   
-    } catch(err) {
-      
-    }
-
-    
+Etkinlikleri tamamlayarak
+bedava \`Gold Üye ve Ürünler\` alabilirsiniz!
+`)
+ .addField("Sohbet Etmek", `
+sizlere 5 dakikada rastgele 5-75 arası puan verir.
+`)
+ 
+ .addField("!günlükhediyem", `
+Her gün alınabilir.
+1 oy karşılığında \`500-2.000\` arasında rastgele hediye puan alabilirsin.
+`)
+ 
+ .setFooter("© Mcadventuretime.com", client.user.avatarURL)
+ 
+ return message.channel.send(Embed)
 }
 
-exports.conf = {
+module.exports.conf = {
   enabled: true,
-  guildOnly: true,
-  aliases: [],
-  permLevel: 0,
-  kategori: "puan"
+  guildOnly: false,
+  aliases: ["pmenu","p-menu", "p-menü"],
+  permLevel: 0
 };
 
-exports.help = {
-  name: 'market',
-  description: 'Eşya',
-  usage: 'market'
+module.exports.help = {
+  name: "pmenü",
+  description: 'Yardım Menüsünü Gösterir.',
+  usage: 'yardım'
 };
