@@ -11,9 +11,13 @@ exports.run = async (bot, message, args) => {
     let lastDaily = await db.fetch(`lastDaily_${message.author.id}`);
     if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
         let timeObj = ms(cooldown - (Date.now() - lastDaily));
-        
-
         const embed = new Discord.RichEmbed()
+let user = message.author
+  var toplam = db.fetch(`kredi-sistemi.coderskod_${user.id}`)
+   let m = message
+  const al = new Discord.RichEmbed()
+  .setColor("RANDOM")
+ .setDescription(`${message.author.tag}'un Toplam ${toplam || 0} Kredisi Var!`)
         .setTitle('Hata!')
         .setColor('BLACK')
         .setDescription(`Günlük ödülünü zaten aldın!\nYeniden almana: **${timeObj.hours} saat ${timeObj.minutes} dakika**!`)

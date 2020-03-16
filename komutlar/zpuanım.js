@@ -3,10 +3,6 @@ const Discord = require('discord.js'),
       ms = require('parse-ms');
 
 exports.run = async (bot, message, args) => {
-  
-para = await db.fetch(`puan_${message.guild.id}_${kişi.id}`)
-}
-message.channel.send(`Kişi; ${kişi}\nPuan; `+para)
 
 }
 exports.conf = {
