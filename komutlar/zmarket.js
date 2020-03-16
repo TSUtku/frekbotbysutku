@@ -36,7 +36,7 @@ message.channel.send(e)
     
     
   } else if (para < 200) {
-        message.channel.send(`Ne yazık ki yeterli puana sahip değilsin!\nGold üye 3.000 Puan!`)
+        message.channel.send(`Ne yazık ki yeterli puana sahip değilsin!\nGold üye 200 Puan!`)
     } else if  (para > 200) {
 message.channel.send(`Artık goldsun!`)
 db.add(`para_${message.member.id}`, -200)
