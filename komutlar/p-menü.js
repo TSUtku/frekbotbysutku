@@ -38,9 +38,9 @@ Puanınızı ve market menüsünü gösterir.
   }
  const Embed = new Discord.RichEmbed()
  .setTimestamp()
- .setAuthor("EŞŞEK-AT", client.user.avatarURL)
+ .setAuthor("MREagles", client.user.avatarURL)
 .setColor("BLUE")
-.setTitle("EŞŞEK-AT BOT")
+.setTitle("MREagles BOT")
  .setURL("https://discordapp.com/oauth2/authorize?client_id=647386467844227074&scope=bot&permissions=8")
 
  .setDescription(`

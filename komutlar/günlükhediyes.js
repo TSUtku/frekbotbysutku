@@ -20,7 +20,7 @@ let kod31 = "1";
  
   db.add(`goldpuan_${message.author.id}`, kod31)
   message.channel.send(`Uuu Şanslısın Ki Hesabına Tamı Tamına ${client.emojis.get("649963065697107978")} ${kod31} Puan Eklendi!
-${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabilirsin :) !p-market ${client.emojis.get("649963065697107978")}
+${client.emojis.get("649963065697107978")}  Unutma Her an zamanı yok Tekrardan Alabilirsin :) !p-market ${client.emojis.get("649963065697107978")}
 `)
   kullanildii[message.author.id].gunlukkullanim = 1
     
