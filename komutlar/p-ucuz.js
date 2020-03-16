@@ -6,13 +6,13 @@ const ms = require("ms")
 exports.run = async (client, message,args) => {
 
    
-  if (db.fetch(`goldpuan_${message.author.id}`) >= 10000) {
+  if (db.fetch(`goldpuan_${message.author.id}`) >= 1000) {
 let kod31 = "";
-  let kod = "1"
+  let kod = "123456789"
   for(var k = 0; k < 1; k++) {
     kod31 = (kod31 + kod.charAt(Math.floor(Math.random() * kod.length)));
   }
- const kod32 = require("useful-tools").hesapla(`${db.fetch(`goldpuan_${message.author.id}`)}-10000`)
+ const kod32 = require("useful-tools").hesapla(`${db.fetch(`goldpuan_${message.author.id}`)}-1000`)
  db.add(`goldsure_${message.author.id}`, kod31)
  db.set(`goldpuan_${message.author.id}`, kod32)
     var user = message.author; 

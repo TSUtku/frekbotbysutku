@@ -59,6 +59,11 @@ Puanınızı ve market menüsünü gösterir.
 10.000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele 1-10 arası invite çıkar.
 `)
+  .addField("!p-ucuz", `
+1.000 puan karşılığı invite kasa açarsınız.
+İçinden rastgele 1-10 arası Vip  çıkar.
+`)
+ 
  
  .addField("!p-yakut", `
 10.000 puan karşılığı yakut kasa açarsınız.
