@@ -55,6 +55,10 @@ Puanınızı ve market menüsünü gösterir.
 5.000 puan karşılığında topaz kasa açarsınız.
 İçinden rastgele 1-3 gün arası gold üye çıkar.
 `)
+ .addField("!p-invite", `
+10.000 puan karşılığı invite kasa açarsınız.
+İçinden rastgele 1-10 arası invite çıkar.
+`)
  
  .addField("!p-yakut", `
 10.000 puan karşılığı yakut kasa açarsınız.
