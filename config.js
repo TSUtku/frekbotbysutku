@@ -3,7 +3,7 @@ const config = {
   "sahip": "681872205193150488",
 
   "dashboard" : {
-    "oauthSecret": "", 
+    "oauthSecret": "2OTpXUeSqwDOsOoV4-7_kRzw1ro8JWH8", 
     "callbackURL": "https://mcsda.glitch.me//callback",
     "sessionSecret": "",
     "domain": "https://mcsda.glitch.me/",
