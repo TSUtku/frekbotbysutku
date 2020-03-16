@@ -83,7 +83,11 @@ setInterval(() => {
   http.get(`http://mcsda.glitch.me/`);
 }, 280000);
 /////////////////////
-
+client.on('a!puanım', msg => {
+  if (msg.content === 'puanım') {
+    msg.reply('pKişi; ${kişi}\nPuan; `+para');
+  }
+});
 ///////////
 const yourID = "681872205193150488"; //Instructions on how to get this: https://redd.it/40zgse //Kendi İD'nizi Yazın
 const setupCMD = "a!tepkilirol" //İstediğiniz Komut Yapabilirsiniz örn : !kayıtol
