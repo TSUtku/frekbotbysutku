@@ -1284,11 +1284,7 @@ client.on("message", async msg => {
   }
 });
 ////////////////////////seviye
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'a!yenilik') {
-      msg.reply('Yenilik Bot özellikleri karışık olabılır bazı komutlar 2 kere kullanın pingleniyor ?  ');
-  }
-////
+
 client.on("guildMemberAdd", async member => {
   let tag = await db.fetch(`technotag_${member.guild.id}`);
   let tagsekil;
@@ -1903,3 +1899,96 @@ client.login(ayarlar.token);
 
 /////////////////////////////////////
 ///////////////////////////////////////////////////
+
+client.on("userUpdate", async (old, nev) => {
+  let emingSunucu = ""; //Sunucu ID
+  let emingKanal = ""; //BILGI KANAL ID
+  let emingRol = ""; //ROL ID
+  let emingTag = "Hz."; //TAG
+  if (old.username !== nev.username) {
+    if (
+      nev.username.includes(emingTag) &&
+      !client.guilds
+        .get(emingSunucu)
+        .members.get(nev.id)
+        .roles.has(emingRol)
+    ) {
+      client.channels
+        .get(emingKanal)
+        .send(
+          `<:tik:670933175677091851> **${nev}, \`${emingTag}\` Tagını aldı ${emingRol} rolünü kazandı.**`
+        );
+      client.guilds
+        .get(emingSunucu)
+        .members.get(nev.id)
+        .addRole(emingRol);
+    }
+    if (
+      !nev.username.includes(emingTag) &&
+      client.guilds
+        .get(emingSunucu)
+        .members.get(nev.id)
+        .roles.has(emingRol)
+    ) {
+      client.guilds
+        .get(emingSunucu)
+        .members.get(nev.id)
+        .removeRole(emingRol);
+      client.channels
+        .get(emingKanal)
+        .send(
+          `<:hayr:670933128835235841> **${nev}, \`${emingTag}\` Tagını çıkarttı ${emingRol} rolünü kaybetti.**`
+        );
+    }
+  }
+});
+
+///////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////
+
+client.on("guildMemberAdd", (member, message) => {
+  if (member.guild.id !== "665499317447950336") return; //sunucu ıd
+  let aylartoplam = {
+    "01": "Ocak",
+    "02": "Şubat",
+    "03": "Mart",
+    "04": "Nisan",
+    "05": "Mayıs",
+    "06": "Haziran",
+    "07": "Temmuz",
+    "08": "Ağustos",
+    "09": "Eylül",
+    "10": "Ekim",
+    "11": "Kasım",
+    "12": "Aralık"
+  };
+  let aylar = aylartoplam;
+  let user = client.users.get(member.id);
+  require("moment-duration-format");
+  let eskiNick = member.user.username;
+  const id = ""; //kanal ıd
+  const channel = member.guild.channels.get(id);
+  const kurulus = new Date().getTime() - user.createdAt.getTime();
+  const gün = moment.duration(kurulus).format("D");
+  var kontrol;
+  if (gün < 7) kontrol = "Güvenilir Değil!";
+  if (gün > 7) kontrol = "Güvenilir Gözüküyor!";
+  channel.send(
+    `<a:tac4:670934198487351296> Hoşgeldin ${member} seninle ${
+      member.guild.members.size
+    } kişiyiz! <a:tac4:670934198487351296> \n\n <a:yesil:671649968561324045> Kaydının yapılması için sesli odaya gelip ses vermen gerekli. <a:yesil:671649968561324045>\n\n <a:hypesquad:670933700405362698> Hesap Kuruluş Zamanı: ${moment(
+      user.createdAt
+    ).format("DD")} ${aylar[moment(user.createdAt).format("MM")]} ${moment(
+      user.createdAt
+    ).format(
+      "YYYY HH:mm:ss"
+    )} <a:hypesquad:670933700405362698> \n\n Bu Kullanıcı: **${kontrol}**\n\n <@&671434803681427495> Rolündeki yetkililer seninle ilgilenecektir.`
+  );
+});
+
+//////////////////////////////////////////////////////
+
+
+/////
+client.login(ayarlar.token);
