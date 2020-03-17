@@ -51,34 +51,38 @@ daha fazla puan kazanmak için !p-menü yazabilirsin.
 Puanınızı ve market menüsünü gösterir.
 
 `)
- .addField("!p-topaz", `
+ .addField("a!p-topaz", `
 5.000 puan karşılığında topaz kasa açarsınız.
 İçinden rastgele 1-3 gün arası gold üye çıkar.
 `)
- .addField("!p-invite", `
+ .addField("!ap-invite", `
 10.000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele 1-10 arası invite çıkar.
 `)
-  .addField("!p-ucuz", `
+  .addField("a!p-ucuz", `
 1.000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele 1-10 arası Vip  çıkar.
 `)
-   .addField("!p-100k", `
+   .addField("a!p-100k", `
 100000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele 100-1000 arası GOLD ÜYE + 15 İNVİTE  çıkar.
 `)
-   .addField("!p-sınırsız", `
+    .addField("a!p-yetki", `
+50000 puan karşılığı invite kasa açarsınız.
+İçinden rastgele Yetki puanı çıkar  çıkar.
+`)
+   .addField("a!p-sınırsız", `
 75000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele SINIRISZ-SINIRSIZ arası Vip  çıkar.
 `)
  
  
- .addField("!p-yakut", `
+ .addField("a!p-yakut", `
 10.000 puan karşılığı yakut kasa açarsınız.
 İçinden rastgele 1-10 gün arası gold üye çıkar.
 `)
  
- .addField("!p-garnet", `
+ .addField("a!p-garnet", `
 45.000 puan karşılığı garnet kasa açarsınız.
 İçinden rastgele (10-45) gün arası gold üye çıkar.
 `)
