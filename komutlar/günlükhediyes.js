@@ -7,7 +7,7 @@ exports.run = async (client, message,args) => {
    
       let kullanildii = JSON.parse(fs.readFileSync('./ghediye.json', 'utf8'));
   if (!kullanildii[message.author.id]) kullanildii[message.author.id] = {
-    gunlukkullanim: 1
+    gunlukkullanim: 0
   }
   if (kullanildii[message.author.id].gunlukkullanim == 0)
   {
@@ -22,7 +22,7 @@ let kod31 = "1";
   message.channel.send(`Uuu Şanslısın Ki Hesabına Tamı Tamına ${client.emojis.get("649963065697107978")} ${kod31} Puan Eklendi!
 ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabilirsin :) !p-market ${client.emojis.get("649963065697107978")}
 `)
-  kullanildii[message.author.id].gunlukkullanim = 1
+  kullanildii[message.author.id].gunlukkullanim = 0
     
   fs.writeFile('./ghediye.json', JSON.stringify(kullanildii), (err) => {
       if (err) console.error(err)
@@ -34,7 +34,7 @@ ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabi
     fs.writeFile('./ghediye.json', JSON.stringify(kullanildii), (err) => {
       if (err) console.error(err)
     })
-  }, ms('1s'));
+  }, ms('10s'));
   
   if (kullanildii[message.author.id].gunlukkullanim == 1)
   {
@@ -45,13 +45,13 @@ ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabi
 
 module.exports.conf = {
   enabled: true,
-  guildOnly: false,
+  guildOnly: true,
   aliases: ['günlükhediyem', "günlükhediye", "günlük-hediye"],
   permLevel: 0
 };
 
 module.exports.help = {
-  name: 'günlük-hediyem',
+  name: 'Gizli',
   description: '',
   usage: ''
 };
