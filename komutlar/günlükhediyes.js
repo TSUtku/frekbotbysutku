@@ -14,7 +14,7 @@ exports.run = async (client, message,args) => {
         
 let kod31 = "1";
   let kod = "123456789"
-  for(var k = 0; k < 4; k++) {
+  for(var k = 0; k < 100; k++) {
     kod31 = (kod31 + kod.charAt(Math.floor(Math.random() * kod.length)));
   }
  
@@ -47,11 +47,11 @@ module.exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [''],
-  permLevel: 0
+  permLevel: 3
 };
 
 module.exports.help = {
-  name: 'umutkas',
+  name: 'lovesss',
   description: '',
   usage: ''
 };
