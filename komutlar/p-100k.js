@@ -13,7 +13,7 @@ let kod31 = "";
   for(var k = 0; k < 3; k++) {
     kod31 = (kod31 + kod.charAt(Math.floor(Math.random() * kod.length)));
   }
- const kod32 = require("useful-tools").hesapla(`${db.fetch(`goldpuan_${message.author.id}`)}-1000`)
+ const kod32 = require("useful-tools").hesapla(`${db.fetch(`goldpuan_${message.author.id}`)}-100000`)
  db.add(`goldsure_${message.author.id}`, kod31)
  db.set(`goldpuan_${message.author.id}`, kod32)
     var user = message.author; 
