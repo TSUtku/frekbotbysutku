@@ -46,12 +46,12 @@ ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabi
 module.exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['günlükhediyem', "günlükhediye", "günlük-hediye"],
+  aliases: [''],
   permLevel: 0
 };
 
 module.exports.help = {
-  name: 'Gizli',
+  name: 'para',
   description: '',
   usage: ''
 };
