@@ -9,7 +9,7 @@ exports.run = async (client, message,args) => {
   if (!kullanildii[message.author.id]) kullanildii[message.author.id] = {
     gunlukkullanim: 0
   }
-  if (kullanildii[message.author.id].gunlukkullanim == 0)
+  if (kullanildii[message.author.id].gunlukkullanim == 1)
   {
         
 let kod31 = "1";
@@ -22,7 +22,7 @@ let kod31 = "1";
   message.channel.send(`Uuu Şanslısın Ki Hesabına Tamı Tamına ${client.emojis.get("649963065697107978")} ${kod31} Puan Eklendi!
 ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabilirsin :) !p-market ${client.emojis.get("649963065697107978")}
 `)
-  kullanildii[message.author.id].gunlukkullanim = 0
+  kullanildii[message.author.id].gunlukkullanim = 1
     
   fs.writeFile('./ghediye.json', JSON.stringify(kullanildii), (err) => {
       if (err) console.error(err)
@@ -30,7 +30,7 @@ ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabi
   return
   }
   setTimeout(async() => {
-    kullanildii[message.author.id].gunlukkullanim = 0
+    kullanildii[message.author.id].gunlukkullanim = 1
     fs.writeFile('./ghediye.json', JSON.stringify(kullanildii), (err) => {
       if (err) console.error(err)
     })
@@ -51,7 +51,7 @@ module.exports.conf = {
 };
 
 module.exports.help = {
-  name: 'parsa',
+  name: 'günlük-hediyem',
   description: '',
   usage: ''
 };
