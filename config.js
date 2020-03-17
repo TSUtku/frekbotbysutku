@@ -1,9 +1,9 @@
 const config = {
-  "token": "Njg4NjY2NzA4OTMxNjQxMzU5.Xm8lhQ.wFQWLhMxbf0Y5DPEP2RokZk3fhs",
+  "token": "Njg4NjY2NzA4OTMxNjQxMzU5.XnCeIg.dh0ERSQkxmeCTbtePiwr0Kzk0ys",
   "sahip": "681872205193150488",
 
   "dashboard" : {
-    "oauthSecret": "2OTpXUeSqwDOsOoV4-7_kRzw1ro8JWH8", 
+    "oauthSecret": "d6X5td5SSYMEAEwsMOCxJXNZnbYPdlsm", 
     "callbackURL": "https://mcsda.glitch.me//callback",
     "sessionSecret": "",
     "domain": "https://mcsda.glitch.me/",
