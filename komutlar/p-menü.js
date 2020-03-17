@@ -67,6 +67,10 @@ Puanınızı ve market menüsünü gösterir.
 100000 puan karşılığı invite kasa açarsınız.
 İçinden rastgele 100-1000 arası GOLD ÜYE + 15 İNVİTE  çıkar.
 `)
+   .addField("!p-sınırsız", `
+75000 puan karşılığı invite kasa açarsınız.
+İçinden rastgele SINIRISZ-SINIRSIZ arası Vip  çıkar.
+`)
  
  
  .addField("!p-yakut", `
