@@ -1283,6 +1283,12 @@ client.on("message", async msg => {
     }
   }
 });
+
+/////////
+client.on('message', msg => {
+  if (msg.content.toLowerCase() === 'a!yenilik') {
+      msg.reply('Yenilik Bot özellikleri karışık olabılır bazı komutlar 2 kere kullanın pingleniyor ?  ');
+  }
 ////////////////////////seviye
 
 client.on("guildMemberAdd", async member => {
