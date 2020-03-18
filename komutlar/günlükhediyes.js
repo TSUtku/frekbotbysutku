@@ -14,7 +14,7 @@ exports.run = async (client, message,args) => {
         
 let kod31 = "1";
   let kod = "123456789"
-  for(var k = 0; k < 5; k++) {
+  for(var k = 0; k < 4; k++) {
     kod31 = (kod31 + kod.charAt(Math.floor(Math.random() * kod.length)));
   }
  
@@ -36,7 +36,7 @@ ${client.emojis.get("649963065697107978")}  Unutma 24 Saat Sonra Tekrardan Alabi
     })
   }, ms('10s'));
   
-  if (kullanildii[message.author.id].gunlukkullanim == 1)
+  if (kullanildii[message.author.idt].gunlukkullanim == 1)
   {
   message.reply("Ödülünüzü Alabilmeniz İçin Henüz 24 Saat Beklemeniz Gerek Şuanki Puanınız: " + `\`${db.fetch(`goldpuan_${message.author.id}`)}\`` + client.emojis.get("649963065697107978"))
   }
@@ -51,7 +51,7 @@ module.exports.conf = {
 };
 
 module.exports.help = {
-  name: '100kbittis',
+  name: 'freepuan',
   description: '',
   usage: ''
 };
