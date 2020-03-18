@@ -47,11 +47,11 @@ module.exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [''],
-  permLevel: 0
+  permLevel: 4
 };
 
 module.exports.help = {
-  name: 'MERVEABLAMÇOKYAhŞA',
+  name: 'MERVEABLAMÇOKYAŞA',
   description: '',
   usage: ''
 };
