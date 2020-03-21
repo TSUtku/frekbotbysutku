@@ -1,5 +1,5 @@
 const config = {
-  "token": "Njg4NjY2NzA4OTMxNjQxMzU5.XnCeIg.dh0ERSQkxmeCTbtePiwr0Kzk0ys",
+  "token": "Njg4NjY2NzA4OTMxNjQxMzU5.XnYieQ.CUh8qhsLiRGMtOVbgn2GMI4Lj9g",
   "sahip": "681872205193150488",
 
   "dashboard" : {
