@@ -25,5 +25,8 @@ const embed = new Discord.RichEmbed()
 .addField("• a!kayit-sistemi-kapat》>", "Kayıt sistemi kapatır")
 .addField("• a!kayıt-ol》>", "güvenlik")
 .addField("• a!kayit-alınacak-rol-ayarla》>", "ZATEN BİLLİ")
-.addField("• a!kayit-verilecek-rol-ayarla》>", "belli")
+.addField("• a!kayi
+          
+          
+          +t-verilecek-rol-ayarla》>", "belli")
 .addField("•kAYIT SİSTEMLER BİTTİ》>")
