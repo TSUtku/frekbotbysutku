@@ -27,3 +27,20 @@ const embed = new Discord.RichEmbed()
 .addField("• a!kayit-alınacak-rol-ayarla》>", "ZATEN BİLLİ")
 .addField("• a!kayit-verilecek-rol-ayarla》>", "belli")
 .addField("•kAYIT SİSTEMLER BİTTİ》>")
+
+    
+
+};
+exports.conf = {
+  enabled: true, 
+  guildOnly: false, 
+  aliases: [],
+  permLevel: 0 
+};
+
+exports.help = {
+  category: 'Oyun',
+  name: 'moderasyon',
+  description: 'Adam asmaca oyununu oynarsınız.',
+  usage: 'adamasmaca'
+};
