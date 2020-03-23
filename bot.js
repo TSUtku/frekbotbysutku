@@ -298,7 +298,7 @@ Banlanan Bot: **${member.user.tag}**
 });
 ////////////////
 client.on("message", async message => {
-    { {  const sak = ["sa","1","6","s","a"]
+    { {  const sak = ["sa","1","6","s","a","e"]
       if (message.author.bot) return;
       const fuck = db.fetch(`mesajyazmaengel_${message.author.id}`)
      var ilkuyarı = "{kişi} Spam Yapmayı Bırakman Lazım!".replace("{kişi}", message.author)
