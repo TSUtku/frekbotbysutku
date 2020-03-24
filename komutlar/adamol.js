@@ -2,10 +2,11 @@ const Discord = require("discord.js");
 var Jimp = require('jimp');
 
 exports.run = async (client, message, args) => {
+   message.channel.sendMessage('> Örnek Kullanım: ${prefix}adamol a.  ');
     var user = message.mentions.users.first() || message.author;
     if (!message.guild) user = message.author;
     message.channel.send(`Fotoğraf işleniyor, lütfen bekleyin...`).then(m => m.delete(1000));
-
+  
 Jimp.read('https://cdn.discordapp.com/attachments/617672562281021459/617793751527718923/adamol_icin.jpg', (err, image) => {
     image.resize(301, 168)
     //image.greyscale()
