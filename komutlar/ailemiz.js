@@ -1,5 +1,9 @@
 const Discord = require("discord.js")
 exports.run = (bot, message) => {
+  message.channel.sendMessage(`> Örnek Kullanım: a!ailemiz .   `);
+  let yazi = message.mentions.members.first();
+  var user = message.mentions.users.first() || message.author;
+  if (!message.guild) user = message.author;
   const guildArray = bot.guilds.array()
   while (guildArray.length) {
     const embed = new Discord.RichEmbed();

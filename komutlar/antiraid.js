@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
+  message.channel.sendMessage(`> Örnek Kullanım: a!adamol adam olursun.   `);
+  let yazi = message.mentions.members.first();
+  var user = message.mentions.users.first() || message.author;
+  if (!message.guild) user = message.author;
 
 if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(`Bu komutu kullanmak için yeterli izne sahip değilsin.`)
 

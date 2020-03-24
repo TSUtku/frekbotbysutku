@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 var Jimp = require("jimp");
 
 exports.run = async (client, message, args) => {
-  if(!yazi)
-  msg.channel.sendMessage(`> Örnek Kullanım: a!adamol adam olursun.   `);
+  message.channel.sendMessage(`> Örnek Kullanım: a!adamol adam olursun.   `);
   let yazi = message.mentions.members.first();
   var user = message.mentions.users.first() || message.author;
   if (!message.guild) user = message.author;

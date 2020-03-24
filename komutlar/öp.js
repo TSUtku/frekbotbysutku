@@ -19,6 +19,7 @@ exports.run = (client, message, args) => {
     .setColor('RANDOM')
     .setImage(gifler)
     return message.channel.send(op)
+    return message.delete(300)
     }
   
 };
