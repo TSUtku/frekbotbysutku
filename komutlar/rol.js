@@ -97,7 +97,7 @@ let guild = message.guild;
 }
 
 exports.conf = {
-  aliases: [ 'rololuştur' ],
+  aliases: [ 'rololuştsur' ],
   enabled: true,
   guildOnly: false,
   permLevel: 0
