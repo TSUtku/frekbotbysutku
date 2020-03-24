@@ -6,7 +6,7 @@ const config = {
     "oauthSecret": "d6X5td5SSYMEAEwsMOCxJXNZnbYPdlsm",//Botun Secretini Girdin Mi Buraya  evet girmd
     "callbackURL": "https://mcsda.glitch.me//callback",
   "sessionSecret": "d6X5td5SSYMEAEwsMOCxJXNZnbYPdlsm",
-    "domain": "https://mcsda.glitch.me/",
+    "domain": "https://mcsda-panel.glitch.me/",
     "port": 8000
   },
 };
