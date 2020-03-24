@@ -22,9 +22,9 @@ const embed = new Discord.RichEmbed()
 ${client.guilds.size.toLocaleString()}, Sunucu!. / ${client.users.size}, Üye! / Shard ID: **Yok!**
 
 ${duration / 60 / 60} dakika içinde,
-**32,626** kullanılan kelime içerisinden :speech_balloon: 
+**3,626** kullanılan kelime içerisinden :speech_balloon: 
 **220** küfür engellendi :angry: 
-**6** reklam engellendi :hammer:
+**120** reklam engellendi :hammer:
 [Bot Durumu](https://goo.gl/vJvz9g)
 `)
 message.channel.send(embed)

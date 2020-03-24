@@ -17,13 +17,19 @@ exports.run = (client, message, args) => {
                         }, 1000);
                         setTimeout(() => {
                             msg.edit('🚬 ☁☁☁');
-                        }, 1100);
+                           }, 1100);
+                        setTimeout(() => {
+                            msg.edit('🚬 ☁☁☁☁☁');
+                        }, 1150);
                         setTimeout(() => {
                             msg.edit('🚬 ☁☁');
                         }, 1200);
                         setTimeout(() => {
                             msg.edit('🚬 ☁');
-                        }, 1300);
+                           }, 1300);
+                        setTimeout(() => {
+                            msg.edit('🚬 ☁');
+                        }, 1400);
                         setTimeout(() => {
                             msg.delete(`**Sigara Bitti **`);
                         }, 6000);
