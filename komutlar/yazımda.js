@@ -9,7 +9,7 @@ exports.run = function(client, msg, author) {
     }if(yazi){
       const Embed = new Discord.RichEmbed()
       .setTitle('AZMIŞLAR BEYA')
-      .setDescription(`** <@${msg.author.id}> adlı kullanıcı ${yazi} adlı kullanıyı **sevişti** **`)
+      .setDescription(`** <@${msg.author.id}> adlı kullanıcı ${yazi} adlı kullanıyla **sevişti** **`)
       .setColor('RANDOM')
       .setImage('https://giphy.com/gifs/sexy-kiss-couple-lNgXGnrif3gAM')
       msg.channel.sendMessage(Embed);
