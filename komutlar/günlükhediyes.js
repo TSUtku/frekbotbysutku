@@ -51,7 +51,7 @@ module.exports.conf = {
 };
 
 module.exports.help = {
-  name: 'ChatAzdıs',
+  name: 'puanksas',
   description: '',
   usage: ''
 };
