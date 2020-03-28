@@ -9,7 +9,11 @@ exports.run = (client, message, args) => {
                  ' Sonucun : **AZDIR BENI BE=`2cm`** !',
                  ' Sonucun : **içime alırım ama açıtmaz=`3`** !',
                  ' Sonucun : **çekerimde yalarımda içimede alırım ama kısa süsrer=`5`** !',
-                 ' Sonucun : **amıma girsnee y =`7`** !',
+                 ' Sonucun : **amıma girsnee yalatsana bana onu bebeğim =`7`** !',
+                 ' Sonucun : **üstünde zıplarım lan=`15`** !',
+                 ' Sonucun : **7/24 senle seks te olucam herşeyi yaparım senle=`25`** !',
+                 ' Sonucun : ** naptın olm=`31`** !',
+                 ' Sonucun : ** sen direk=`1999`** !',
                  
                  
                 ];
