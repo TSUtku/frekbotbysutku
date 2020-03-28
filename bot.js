@@ -137,7 +137,7 @@ let spamEngel = JSON.parse(fs.readFileSync("./ayarlar/spamEngel.json", "utf8"));
 //istediğiniz yere ekleyin bot.js de
 
 antispam(client, {
-  uyarmaSınırı: 15, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
+  uyarmaSınırı: 5, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
   banlamaSınırı: 20, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
   aralık: 300000, // ms kullanıcılarda zaman miktarı, yasaklanmadan önce aralık değişkeninin maksimumunu gönderebilir.
   // Uyarı mesajı, kullanıcıya hızlı gideceklerini belirten kullanıcıya gönderilir..
