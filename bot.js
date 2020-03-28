@@ -127,7 +127,7 @@ bot.on("message", message => {
     }
 })
 ///////////////////
-const antispam = require("discord-anti-spam-tr");
+
 client.on("message", msg => {
   const spamEngel = db.get(`spamEngel_${msg.guild.id}`)
 
