@@ -170,7 +170,7 @@ function rcpanel1() {
 function rcpanel4() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`「💬」chat`);
+            client.channels.get(`693836541201612881`).setName(`Sunucumuza hoşgeldin`);
             rcpanel5();
         }, 3000);
       });
@@ -179,7 +179,7 @@ function rcpanel4() {
   function rcpanel5() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`EFSANE CHAT YERİ`);
+            client.channels.get(`693836541201612881`).setName(`kayıt olmayı unutma`);
             rcpanel6();
         }, 3000);
       });
@@ -187,15 +187,18 @@ function rcpanel4() {
   function rcpanel6() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`EN İYİ HİLECİ TEAM`);
-            rcpanel1();
+            client.channels.get(`693836541201612881`).setName(`Welcome MY Server`);
+            rcpanel4();
         }, 3000);
       });
   }
  
  client.on('ready', async message => {
-   rcpanel1();
+   rcpanel4();
  })
+ ////
+
+ 
 ////
 client.on("message", msg => {
   const spamEngel = db.get(`spamEngel_${msg.guild.id}`)
