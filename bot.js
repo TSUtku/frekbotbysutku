@@ -461,17 +461,7 @@ client.on("message", async message => {
       if(6 < mesaj) return message.channel.send(deneme2)
      //  if(12 < mesaj) return message.channel.send(deneme2)
     }}
-    })
-///////
-client.on("guildMemberAdd", member => {
-  setTimeout(() => {
-    member.guild.channels
-      .get("687907327407554570")
-      .setName(`${member.user.username}`);
-  }, 5000);
-});
-/////
-
+};
 
 
 
