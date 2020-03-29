@@ -127,7 +127,20 @@ bot.on("message", message => {
     }
 })
 ///////////////////
-
+client.on("ready", async () => {
+  var isimler = ["TR", "CODE"];
+  var x = 0;
+  setInterval(() => {
+    let c = client.channels.get("693819326272110622");
+    c.setName(isimler[x]);
+    if (x == isimler.length - 1) {
+      x = 0;
+    } else {
+      x += 1;
+    }
+  }, 17000);
+});
+///
 client.on("message", msg => {
   const spamEngel = db.get(`spamEngel_${msg.guild.id}`)
 
