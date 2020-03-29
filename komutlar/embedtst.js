@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on('message', message => {
     if (message.content === 'how to embed') {
-        const embed = new (
+           const embed = new Discord.RichEmbed()
+
 .setTitle('Başlık')
 .setColor('Random')
 .setDescription('Yazı')
@@ -18,7 +19,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "testembed",
+  name: "sa",
   description: "Shows all the servers the bot is in.",
   usage: "ailemiz"
 };
