@@ -440,6 +440,7 @@ client.on("message", async message => {
 
 
 /////////Bu Dosya MR|akals Tarafından Yapılmıştır !/////////////
+
 /////
 
 
