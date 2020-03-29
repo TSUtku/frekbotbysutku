@@ -4,7 +4,7 @@ exports.run = (client,message) => { ///bot oldugunu ve mesaji tanittik
   let x = message.member
   let devtr;
   let logchnl = "693819326272110622" //log kanal id
-  let zmorcy = "688690594087829504" //verilecek rol id
+  let zmorcy = "693872001248657438" //verilecek rol id
  
 
   
@@ -20,8 +20,8 @@ exports.run = (client,message) => { ///bot oldugunu ve mesaji tanittik
   .setColor('GREEN')
   .setFooter( message.author.username , message.author.avatarURL )
   .setThumbnail( message.author.avatarURL )
-  .setDescription(` 🔥 | Tebrikler \n\n ⚡ | **Javascript** rolünü ${message.author} kişisine verdim.`)
- message.channel.send(`🌙 | **Javascript** rolünü sana verdim.`)
+  .setDescription(` 🔥 | Tebrikler \n\n ⚡ | **Premium** rolünü ${message.author} kişisine verdim.`)
+ message.channel.send(`🌙 | **Premium** rolünü sana verdim.`)
 
   client.channels.get(logchnl).send(devtr)
 
@@ -39,8 +39,8 @@ return
   .setColor('RED')
   .setFooter( message.author.username , message.author.avatarURL )
   .setThumbnail( message.author.avatarURL )
-  .setDescription( ` 🔥 | İşlem başarılı. \n\n 🌙 | **Javascript** rolünü ${message.author} kişisinden aldım`)
-   message.channel.send(`❌ | **Javascript** rolünü senden aldım.`)
+  .setDescription( ` 🔥 | İşlem başarılı. \n\n 🌙 | **Premium** rolünü ${message.author} kişisinden aldım`)
+   message.channel.send(`❌ | **Premium** rolünü senden aldım.`)
 
   
   client.channels.get(logchnl).send(devtr)
@@ -68,7 +68,7 @@ permlevel: 0 ///tüm herkes kullanabilir dedik
 }
 exports.help =
 {
-name : "js",
+name : "premiumkod",
 despricton : "açıklama",
 usage : "js"
 }
