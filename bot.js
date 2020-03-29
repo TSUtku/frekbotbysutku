@@ -139,7 +139,7 @@ client.on("guildMemberAdd", member => {
 function rcpanel1() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693843353279660053`).setname(` HİLECİ TEAM MİNİGANCI PİÇ`);
+            client.channels.get(`693843353279660053`).setName(`HİLECİ TEAM`);
             rcpanel2();
         }, 3000);
       });
@@ -148,7 +148,7 @@ function rcpanel1() {
   function rcpanel2() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLECİ TEAM MAKROCULAR`);
+            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLCEİ MARKOCULAR`);
             rcpanel3();
         }, 3000);
       });
@@ -156,8 +156,8 @@ function rcpanel1() {
   function rcpanel3() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLECİ TEAM`);
-            rcpanel1();
+            client.channels.get(`693843353279660053`).setName(`MİNİGANÇI PİÇ HİLECİ`);
+            rcpanel3();
         }, 3000);
       });
   }
@@ -165,18 +165,17 @@ function rcpanel1() {
  client.on('ready', async message => {
    rcpanel1();
  })
-
 ////////////////////
-function rcpanel4() {
+function rcpanel5() {
     return new Promise(resolve => {
         setTimeout(() => {
             client.channels.get(`693836541201612881`).setName(`Sunucumuza hoşgeldin`);
-            rcpanel5();
+            rcpanel6();
         }, 3000);
       });
 }
 
-  function rcpanel5() {
+  function rcpanel6() {
     return new Promise(resolve => {
         setTimeout(() => {
             client.channels.get(`693836541201612881`).setName(`kayıt olmayı unutma`);
@@ -184,17 +183,17 @@ function rcpanel4() {
         }, 3000);
       });
   }
-  function rcpanel6() {
+  function rcpanel7() {
     return new Promise(resolve => {
         setTimeout(() => {
             client.channels.get(`693836541201612881`).setName(`Welcome MY Server`);
-            rcpanel4();
+            rcpanel7();
         }, 3000);
       });
   }
  
  client.on('ready', async message => {
-   rcpanel4();
+   rcpanel5();
  })
  ////
 
