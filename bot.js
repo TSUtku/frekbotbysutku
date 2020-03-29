@@ -139,7 +139,7 @@ client.on("guildMemberAdd", member => {
 function rcpanel1() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693833924908023838`).setname(` HİLECİ TEAM`);
+            client.channels.get(`693843353279660053`).setname(` HİLECİ TEAM MİNİGANCI PİÇ`);
             rcpanel2();
         }, 3000);
       });
@@ -148,7 +148,7 @@ function rcpanel1() {
   function rcpanel2() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693833924908023838`).setName(`EN İYİ HİLECİ TEAM MAKROCULAR`);
+            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLECİ TEAM MAKROCULAR`);
             rcpanel3();
         }, 3000);
       });
@@ -156,7 +156,7 @@ function rcpanel1() {
   function rcpanel3() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693833924908023838`).setName(`EN İYİ HİLECİ TEAM`);
+            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLECİ TEAM`);
             rcpanel1();
         }, 3000);
       });
