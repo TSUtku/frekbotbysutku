@@ -136,6 +136,67 @@ client.on("guildMemberAdd", member => {
   }, 5000);
 });
 ///
+function rcpanel1() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693833924908023838`).setName(`selam ben merve`);
+            rcpanel2();
+        }, 3000);
+      });
+}
+
+  function rcpanel2() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693833924908023838`).setName(`oto değişen kanal`);
+            rcpanel3();
+        }, 3000);
+      });
+  }
+  function rcpanel3() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693833924908023838`).setName(`EN İYİ HİLECİ TEAM`);
+            rcpanel1();
+        }, 3000);
+      });
+  }
+ 
+ client.on('ready', async message => {
+   rcpanel1();
+ })
+
+////////////////////
+function rcpanel4() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693146089804660786`).setName(`「💬」chat`);
+            rcpanel5();
+        }, 3000);
+      });
+}
+
+  function rcpanel5() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693146089804660786`).setName(`EFSANE CHAT YERİ`);
+            rcpanel6();
+        }, 3000);
+      });
+  }
+  function rcpanel6() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            client.channels.get(`693146089804660786`).setName(`EN İYİ HİLECİ TEAM`);
+            rcpanel1();
+        }, 3000);
+      });
+  }
+ 
+ client.on('ready', async message => {
+   rcpanel1();
+ })
+////
 client.on("message", msg => {
   const spamEngel = db.get(`spamEngel_${msg.guild.id}`)
 
