@@ -127,18 +127,13 @@ bot.on("message", message => {
     }
 })
 ///////////////////
-client.on("ready", async () => {
-  var isimler = ["TR", "CODE"];
-  var x = 0;
-  setInterval(() => {
-    let c = client.channels.get("693819326272110622");
-    c.setName(isimler[x]);
-    if (x == isimler.length - 1) {
-      x = 0;
-    } else {
-      x += 1;
-    }
-  }, 17000);
+
+client.on("guildMemberAdd", member => {
+  setTimeout(() => {
+    member.guild.channels
+      .get("693819326272110622")
+      .setName(`${member.user.username}`);
+  }, 5000);
 });
 ///
 client.on("message", msg => {
