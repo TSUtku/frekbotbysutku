@@ -139,7 +139,7 @@ client.on("guildMemberAdd", member => {
 function rcpanel1() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`693833924908023838`).setName(` HİLECİ TEAM`);
+            client.channels.get(`693833924908023838`).setname(` HİLECİ TEAM`);
             rcpanel2();
         }, 3000);
       });
@@ -197,35 +197,7 @@ function rcpanel4() {
    rcpanel4();
  })
  ////
-function rcpanel7() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`Chat hoşgeldin evlat`);
-            rcpanel5();
-        }, 3000);
-      });
-}
 
-  function rcpanel8() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`CHAT 7/24`);
-            rcpanel6();
-        }, 3000);
-      });
-  }
-  function rcpanel9() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693146089804660786`).setName(`Chat chat chat`);
-            rcpanel4();
-        }, 3000);
-      });
-  }
- 
- client.on('ready', async message => {
-   rcpanel7();
- })
  
 ////
 client.on("message", msg => {
