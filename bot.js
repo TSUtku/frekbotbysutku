@@ -136,65 +136,7 @@ client.on("guildMemberAdd", member => {
   }, 5000);
 });
 ///
-function rcpanel1() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693843353279660053`).setName(`HİLECİ TEAM`);
-            rcpanel2();
-        }, 3000);
-      });
-}
 
-  function rcpanel2() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693843353279660053`).setName(`EN İYİ HİLCEİ MARKOCULAR`);
-            rcpanel3();
-        }, 3000);
-      });
-  }
-  function rcpanel3() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693843353279660053`).setName(`MİNİGANÇI PİÇ HİLECİ`);
-            rcpanel3();
-        }, 3000);
-      });
-  }
- 
- client.on('ready', async message => {
-   rcpanel1();
- })
-////////////////////
-function rcpanel5() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693836541201612881`).setName(`Sunucumuza hoşgeldin`);
-            rcpanel6();
-        }, 3000);
-      });
-}
-
-  function rcpanel6() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693836541201612881`).setName(`kayıt olmayı unutma`);
-            rcpanel6();
-        }, 3000);
-      });
-  }
-  function rcpanel7() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`693836541201612881`).setName(`Welcome MY Server`);
-            rcpanel7();
-        }, 3000);
-      });
-  }
- 
- client.on('ready', async message => {
-   rcpanel5();
- })
  ////
 
  
