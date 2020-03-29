@@ -3,8 +3,8 @@ const db = require('quick.db')
 exports.run = (client,message) => { ///bot oldugunu ve mesaji tanittik
   let x = message.member
   let devtr;
-  let logchnl = "681181869764640823" //log kanal id
-  let zmorcy = "684697427952926720" //verilecek rol id
+  let logchnl = "693819326272110622" //log kanal id
+  let zmorcy = "688690594087829504" //verilecek rol id
  
 
   
@@ -15,7 +15,7 @@ exports.run = (client,message) => { ///bot oldugunu ve mesaji tanittik
   
   
   message.member.addRole(zmorcy)
-  codeming = new Discord.RichEmbed()
+  const embed = new Discord.RichEmbed()
   .setTitle(':partying_face: | Js Rolü Verildi')
   .setColor('GREEN')
   .setFooter( message.author.username , message.author.avatarURL )
@@ -34,7 +34,7 @@ return
     
     
     message.member.removeRole(zmorcy)
-  codeming = new Discord.RichEmbed()
+ const embed = new Discord.RichEmbed()
   .setTitle(' :x: | Js Rolü Alındı ')
   .setColor('RED')
   .setFooter( message.author.username , message.author.avatarURL )
