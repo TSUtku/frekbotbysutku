@@ -240,9 +240,9 @@ const botistatistik = new Discord.RichEmbed()
 .addField(`discord.js`,`v${Discord.version}`)
 .addField(`Bilgi`,`${client.guilds.size.toLocaleString()} sunucu ve ${client.users.array().length} kullanıcıya hizmet veriyor.`)
 .setTimestamp()
-.setFooter('CNSLink', 'https://www.canes.cf/images/caneslogo.png');
+.setFooter('MRAKALS', 'https://www.canes.cf/images/caneslogo.png');
 botdurum.send(botistatistik);
-  }, 3600000); //Milisaniye cinsinden. 1 saniye =  1000 milisaniye. Örnek Olarak 1 saat = 3600000milisaniye
+  }, 10000); //Milisaniye cinsinden. 1 saniye =  1000 milisaniye. Örnek Olarak 1 saat = 3600000milisaniye
 });
 ////////
 bot.on('raw', event => {
